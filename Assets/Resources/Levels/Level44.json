@@ -1,0 +1,76 @@
+{
+  "cluePoints": [
+    {
+      "x": 0,
+      "y": 1,
+      "magnitude": 1.0,
+      "sqrMagnitude": 1
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "magnitude": 1.0,
+      "sqrMagnitude": 1
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "magnitude": 2.236068,
+      "sqrMagnitude": 5
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "magnitude": 3.60555124,
+      "sqrMagnitude": 13
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "magnitude": 3.1622777,
+      "sqrMagnitude": 10
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "magnitude": 3.60555124,
+      "sqrMagnitude": 13
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "magnitude": 4.0,
+      "sqrMagnitude": 16
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "magnitude": 4.12310553,
+      "sqrMagnitude": 17
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "magnitude": 5.0,
+      "sqrMagnitude": 25
+    }
+  ],
+  "clueSprites": [
+    "Shapes_16",
+    "Shapes_16",
+    "Shapes_18",
+    "Shapes_16",
+    "Shapes_19",
+    "Shapes_15",
+    "Shapes_19",
+    "Shapes_17",
+    "Shapes_15"
+  ],
+  "questionMarkPoint": {
+    "x": 1,
+    "y": 1,
+    "magnitude": 1.41421354,
+    "sqrMagnitude": 2
+  },
+  "correctSpriteName": "Shapes_15"
+}

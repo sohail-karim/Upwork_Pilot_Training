@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: d0c7b5aab2c50ae428816163734d00c6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CUT-E Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 644
+        width: 623
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3f4949ce23fa84cb18564f89b02299
+      internalID: 147099656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 961
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7ec3be196d4b146b363fc9e73b1249
+      internalID: 1846245302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 834
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6910c1865fcaba545a64885748eaaf0c
+      internalID: 230899782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 834
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d51fd8731f0aca34eb5240d894b2696b
+      internalID: -989818409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 712
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c2c9fa74527f14abefaf7891834747
+      internalID: 814898210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 359
+        width: 294
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f8575290ab9ea43a7cfcca2945c292
+      internalID: 1673607718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 362
+        width: 27
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb27eadcbc1b56498fe532b3917655e
+      internalID: 122407831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_25
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 166
+        width: 99
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6477149d44553024689c1801ca0ab7c2
+      internalID: 822804824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_26
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 15
+        width: 293
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6ae94594932544bb9c2e165fe093f2
+      internalID: -672041232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_31
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 131
+        width: 119
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1468335ad99d54e800304710789cb2
+      internalID: 1361504212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUT-E Sprite_43
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 42
+        width: 70
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da38062eb74ae2a4b8ae65e523b18263
+      internalID: 1638166719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CUT-E Sprite_0: 147099656
+      CUT-E Sprite_1: -1120660361
+      CUT-E Sprite_10: -1304220138
+      CUT-E Sprite_11: 858088793
+      CUT-E Sprite_12: 122407831
+      CUT-E Sprite_13: -328299185
+      CUT-E Sprite_14: -1910235863
+      CUT-E Sprite_15: -1229734512
+      CUT-E Sprite_16: 446163420
+      CUT-E Sprite_17: 1568159661
+      CUT-E Sprite_18: 548147459
+      CUT-E Sprite_19: -1350111297
+      CUT-E Sprite_2: 1255271689
+      CUT-E Sprite_20: 1279107315
+      CUT-E Sprite_21: 1424508363
+      CUT-E Sprite_22: 642619542
+      CUT-E Sprite_23: 955555017
+      CUT-E Sprite_24: -1569144043
+      CUT-E Sprite_25: 822804824
+      CUT-E Sprite_26: -672041232
+      CUT-E Sprite_27: 748804534
+      CUT-E Sprite_28: 1543475757
+      CUT-E Sprite_29: -980618740
+      CUT-E Sprite_3: 1846245302
+      CUT-E Sprite_30: -1856781795
+      CUT-E Sprite_31: 1361504212
+      CUT-E Sprite_32: -1434209386
+      CUT-E Sprite_33: 860898581
+      CUT-E Sprite_34: 2019978089
+      CUT-E Sprite_35: -1115307281
+      CUT-E Sprite_36: -1298946362
+      CUT-E Sprite_37: -1602553843
+      CUT-E Sprite_38: -2033756692
+      CUT-E Sprite_39: 187285717
+      CUT-E Sprite_4: 230899782
+      CUT-E Sprite_40: -4489452
+      CUT-E Sprite_41: 1952532962
+      CUT-E Sprite_42: -1087717147
+      CUT-E Sprite_43: 1638166719
+      CUT-E Sprite_44: 2113847964
+      CUT-E Sprite_45: -1104109776
+      CUT-E Sprite_46: 1493813684
+      CUT-E Sprite_47: 437583435
+      CUT-E Sprite_48: 1595048555
+      CUT-E Sprite_49: 1448272493
+      CUT-E Sprite_5: -989818409
+      CUT-E Sprite_50: -552627889
+      CUT-E Sprite_51: -1524637886
+      CUT-E Sprite_6: 814898210
+      CUT-E Sprite_7: -1726683745
+      CUT-E Sprite_8: 267893127
+      CUT-E Sprite_9: 1673607718
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

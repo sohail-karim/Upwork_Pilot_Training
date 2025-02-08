@@ -1,0 +1,79 @@
+{
+    "levels": [
+        {
+            "rows": 6,
+            "cols": 4,
+            "redPosition": { "x": 0, "y": 2 },
+            "blackPosition": { "x": 5, "y": 1 },
+            "obstacles": [
+                { "position": { "x": 0, "y": 0 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 1, "y": 1 }, "size": { "x": 2, "y": 1 }, "isStatic": false },
+                { "position": { "x": 2, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 3, "y": 0 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 3, "y": 2 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 4, "y": 1 }, "size": { "x": 2, "y": 1 }, "isStatic": false },
+                { "position": { "x": 5, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true }
+            ]
+        },
+        {
+            "rows": 6,
+            "cols": 4,
+            "redPosition": { "x": 0, "y": 3 },
+            "blackPosition": { "x": 5, "y": 0 },
+            "obstacles": [
+                { "position": { "x": 0, "y": 1 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 1, "y": 0 }, "size": { "x": 2, "y": 1 }, "isStatic": false },
+                { "position": { "x": 1, "y": 3 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 3, "y": 0 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 3, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": false },
+                { "position": { "x": 4, "y": 2 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 5, "y": 1 }, "size": { "x": 1, "y": 1 }, "isStatic": false }
+            ]
+        },
+        {
+            "rows": 6,
+            "cols": 4,
+            "redPosition": { "x": 0, "y": 0 },
+            "blackPosition": { "x": 5, "y": 3 },
+            "obstacles": [
+                { "position": { "x": 0, "y": 1 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 1, "y": 0 }, "size": { "x": 2, "y": 1 }, "isStatic": false },
+                { "position": { "x": 2, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 3, "y": 1 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 4, "y": 0 }, "size": { "x": 2, "y": 1 }, "isStatic": true },
+                { "position": { "x": 5, "y": 2 }, "size": { "x": 1, "y": 1 }, "isStatic": false },
+                { "position": { "x": 5, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true }
+            ]
+        },
+        {
+            "rows": 6,
+            "cols": 4,
+            "redPosition": { "x": 1, "y": 0 },
+            "blackPosition": { "x": 5, "y": 3 },
+            "obstacles": [
+                { "position": { "x": 0, "y": 1 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 1, "y": 2 }, "size": { "x": 1, "y": 2 }, "isStatic": false },
+                { "position": { "x": 2, "y": 0 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 3, "y": 1 }, "size": { "x": 2, "y": 1 }, "isStatic": true },
+                { "position": { "x": 4, "y": 0 }, "size": { "x": 1, "y": 1 }, "isStatic": false },
+                { "position": { "x": 4, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 5, "y": 1 }, "size": { "x": 1, "y": 2 }, "isStatic": true }
+            ]
+        },
+        {
+            "rows": 6,
+            "cols": 4,
+            "redPosition": { "x": 0, "y": 3 },
+            "blackPosition": { "x": 5, "y": 0 },
+            "obstacles": [
+                { "position": { "x": 0, "y": 0 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 1, "y": 1 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 1, "y": 3 }, "size": { "x": 1, "y": 2 }, "isStatic": false },
+                { "position": { "x": 3, "y": 0 }, "size": { "x": 2, "y": 1 }, "isStatic": true },
+                { "position": { "x": 3, "y": 3 }, "size": { "x": 1, "y": 1 }, "isStatic": true },
+                { "position": { "x": 4, "y": 1 }, "size": { "x": 1, "y": 2 }, "isStatic": true },
+                { "position": { "x": 5, "y": 2 }, "size": { "x": 1, "y": 1 }, "isStatic": true }
+            ]
+        }
+    ]
+}

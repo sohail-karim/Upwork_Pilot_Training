@@ -1,0 +1,158 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelManager : MonoBehaviour
+{
+    public GameObject circleScreen; // Reference to CircleScreen
+    public GameObject gridScreen;   // Reference to GridScreen
+
+    CirclePatternManager CircleGameManager;           // Reference to CirclePatternManager script
+    PatternGameManager patternManager; // Reference to PatternGameManager script
+
+    public int totalLevels; // Total number of levels in the game
+    [SerializeField]
+    private int currentLevel; // Tracks the current level
+
+    private bool isCircleScreenActive = true; // Toggles between CircleScreen and GridScreen
+      
+    public List<Levels> levels = new List<Levels>();
+
+
+    public static LevelManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    void Start()
+    {
+        CircleGameManager = CirclePatternManager.instance;
+        patternManager = PatternGameManager.instance;
+        totalLevels = levels.Count;
+        currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
+        StartLevel(currentLevel);
+    }
+
+    public void StartLevel(int CurrentLevelNo)
+    { 
+        // Decide whether to use CircleScreen or GridScreen for the current level
+        if (isCircleScreenActive)
+        {
+           ActivateCircleScreen(CurrentLevelNo);
+        }
+       else
+       {
+           ActivateGridScreen();
+       }
+    }
+
+    public void AgainShowScreens()
+    {
+        circleScreen.SetActive(true);
+        gridScreen.SetActive(false);
+        CircleGameManager.AgainHighlight(levels[currentLevel].CircleDisplayTime);
+        StartCoroutine(WaitAndSwitchScreen(levels[currentLevel].CircleDisplayTime));
+    }
+
+    public void ActivateCircleScreen(int CurrentLevelNo)
+    {
+        circleScreen.SetActive(true);
+        gridScreen.SetActive(false);
+
+        // Configure the CirclePatternManager for this level
+        CircleGameManager.SpawnCircles(GetCircleCountForLevel(CurrentLevelNo) , GetMinimumDistanceForLevel(CurrentLevelNo) , levels[CurrentLevelNo].CircleDisplayTime); // Regenerate circles for this level
+           
+        StartCoroutine(WaitAndSwitchScreen(levels[CurrentLevelNo].CircleDisplayTime)); // Display CircleScreen for 3 seconds
+    }
+
+    private void ActivateGridScreen()
+    {
+        
+        circleScreen.SetActive(false);
+        gridScreen.SetActive(true);
+
+        // Configure the PatternGameManager for this level
+        patternManager.CreatePattern();
+        isCircleScreenActive = false;
+
+        // Wait for the user to complete the pattern and proceed
+    }
+
+    
+
+    // Switches between screens after a delay
+    private IEnumerator WaitAndSwitchScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+         if (isCircleScreenActive)
+        {
+            ActivateGridScreen();
+        }
+        else
+        {
+
+        }
+        // After the delay, switch to the GridScreen
+        
+    }
+
+
+    // Determines the number of circles based on the current level
+    private int GetCircleCountForLevel(int CurrentLevelNo)
+    {
+        return levels[CurrentLevelNo].CircleCount; // Example: Gradually increases up to 10 circles
+    }
+
+    // Determines the minimum distance between circles based on the current level
+    private float GetMinimumDistanceForLevel(int CurrentLevelNo)
+    {
+        return levels[CurrentLevelNo].Distance; // Example: Reduces distance as levels progress
+    }
+
+    // Handles level completion
+    public void OnLevelComplete()
+    {
+        Debug.Log($"Level {currentLevel} Completed!");
+
+        currentLevel++;
+
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
+
+        if (currentLevel > totalLevels)
+        {
+            Debug.Log("Game Complete!");
+            return;
+        }
+
+        // Toggle between CircleScreen and GridScreen for the next level
+        isCircleScreenActive = !isCircleScreenActive;
+
+        //   StartLevel();
+    }
+
+
+    // Handles level failure
+    public void OnLevelFailed()
+    {
+        Debug.Log($"Level {currentLevel} Failed! Restarting...");
+
+        //    StartLevel(); // Restart the same level
+    }
+
+}
+
+[Serializable]
+public class Levels
+{
+  public int LevelNo;
+  public int CircleCount;
+  public float Distance;
+  public bool IsRotated;
+  public float CircleDisplayTime;
+  public float SymmetricDisplayTime;
+  public int CountToDisplayCirclesScreen;
+  public int CounttoDisplayGridScreen;
+
+}
