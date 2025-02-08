@@ -805,7 +805,7 @@ PlayerSettings:
     PS5: DOTWEEN
     QNX: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: DOTWEEN
+    Standalone: DOTWEEN;USC_UNITY_PIPELINE_LEGACY
     VisionOS: DOTWEEN
     WebGL: USC_EXCLUDE_SHARE;DOTWEEN
     Windows Store Apps: DOTWEEN
