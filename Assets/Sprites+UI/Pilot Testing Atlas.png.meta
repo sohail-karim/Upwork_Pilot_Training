@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: cd0568042122256469896344133c1d61
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1427
+        width: 1480
+        height: 2632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e814f19c3a6deba4db809e92384e2996
+      internalID: -408268737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 3391
+        width: 1479
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed3d78c7595e7f44b67bd394f9d738e
+      internalID: -571754557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 3127
+        y: 3657
+        width: 398
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d170e87bb6cedf4fb651113b9d5caa3
+      internalID: 1003724962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 3301
+        width: 1482
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03bab1df48f0ca499cefa12eb858c23
+      internalID: -1744622232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 2992
+        width: 213
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f566a6e72355b4ab7fa467bc56b3a8
+      internalID: -37319790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 2992
+        width: 213
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080e2ba9cef16e54c8b1013e698db465
+      internalID: 1754384294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 2914
+        width: 319
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867ce09e1d4945d49aca97dd485d5037
+      internalID: -618977416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 2553
+        y: 2927
+        width: 319
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33006051a18f9b448b08d47cd1e14f23
+      internalID: 24587712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 2926
+        width: 319
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdfd7c7b55937eb40923ad5194ec0142
+      internalID: 1858303375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 3208
+        y: 2925
+        width: 319
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadee062375ce6247be1329a8e079332
+      internalID: -425031959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 2925
+        width: 319
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8f667290b9a4f48919ddca48b1fd9b
+      internalID: -182742581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_23
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 2627
+        width: 1632
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42c3da127494594c96c967d109c5ba4
+      internalID: 58114860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_24
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 2539
+        width: 1370
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc001e6582f0ec9438a4a20e51f33e95
+      internalID: -47501015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_25
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 2469
+        width: 252
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fc34d9d890564438be2570430f5a0d
+      internalID: 750047945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_26
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 2229
+        width: 1622
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ff870d59d2aa44a984085bc31ca055
+      internalID: 1083072318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_27
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1468
+        width: 2514
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b25eaaf2098a994ba64256bdb52da4b
+      internalID: -621924646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_28
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1080
+        width: 779
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ee6785814160b45bd3c0cfd197c5cb
+      internalID: 1329132534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot Testing Atlas_29
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 21
+        width: 2514
+        height: 1421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356103edf4576134a8bc1286b5137201
+      internalID: 420535985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pilot Testing Atlas_0: -408268737
+      Pilot Testing Atlas_1: -571754557
+      Pilot Testing Atlas_10: 1858303375
+      Pilot Testing Atlas_11: -425031959
+      Pilot Testing Atlas_12: 1160585862
+      Pilot Testing Atlas_13: -182742581
+      Pilot Testing Atlas_14: 1337039775
+      Pilot Testing Atlas_15: 1463651975
+      Pilot Testing Atlas_16: 625149943
+      Pilot Testing Atlas_17: 649863858
+      Pilot Testing Atlas_18: 2018348408
+      Pilot Testing Atlas_19: -2092892445
+      Pilot Testing Atlas_2: 1003724962
+      Pilot Testing Atlas_20: -677282359
+      Pilot Testing Atlas_21: 2069436168
+      Pilot Testing Atlas_22: 716798625
+      Pilot Testing Atlas_23: 58114860
+      Pilot Testing Atlas_24: -47501015
+      Pilot Testing Atlas_25: 750047945
+      Pilot Testing Atlas_26: 1083072318
+      Pilot Testing Atlas_27: -621924646
+      Pilot Testing Atlas_28: 1329132534
+      Pilot Testing Atlas_29: 420535985
+      Pilot Testing Atlas_3: -1744622232
+      Pilot Testing Atlas_4: -37319790
+      Pilot Testing Atlas_5: 1754384294
+      Pilot Testing Atlas_6: -618977416
+      Pilot Testing Atlas_7: 24587712
+      Pilot Testing Atlas_8: -1553812619
+      Pilot Testing Atlas_9: 1249519043
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
