@@ -20,8 +20,8 @@ public class OverAllGameManager : MonoBehaviour
     public Button StartLevelButton;
 
     public GameObject GameStartinfoPanel;
-    public RectTransform ButtonsTransform;
-    public RectTransform PlaneTransform;
+    public GameObject ButtonsMainMenus;   //All 5 game buttons
+  //  public RectTransform PlaneTransform;
 
 
     private void Awake()
@@ -30,19 +30,23 @@ public class OverAllGameManager : MonoBehaviour
     }
     private void Start()
     {
-        BgImage.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuart);
+      //  BgImage.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuart);
         GameStartinfoPanel.SetActive(false);
-        ButtonsTransform.transform.DOMoveX(200, 1f).SetEase(Ease.OutQuart);
-        PlaneTransform.transform.DOLocalMove(new Vector2(0, -389f), 2f).SetEase(Ease.OutQuart);
+        ButtonsMainMenus.SetActive(true);
+        //    ButtonsTransform.transform.DOMoveX(200, 1f).SetEase(Ease.OutQuart);
+        //    PlaneTransform.transform.DOLocalMove(new Vector2(0, -389f), 2f).SetEase(Ease.OutQuart);
     }
 
     public void SceneChanage(int SceneNumber)
     {
-        BgImage.transform.DOScale(1.5f, 0.5f).SetEase(Ease.OutQuart);
-        InstructionsPanel.transform.DOScale(1, 0.5f).SetEase(Ease.OutQuart);
+
+        ButtonsMainMenus.SetActive(false);
+
+    //    BgImage.transform.DOScale(1.5f, 0.5f).SetEase(Ease.OutQuart);
+    //    InstructionsPanel.transform.DOScale(1, 0.5f).SetEase(Ease.OutQuart);
         PlayButtonParent.transform.DOMoveY(150, 0.5f).SetEase(Ease.OutQuart);
-        ButtonsTransform.transform.DOMoveX(-200, 0.1f).SetEase(Ease.Linear);
-        PlaneTransform.transform.DOLocalMove(new Vector2(675, 193), 1f).SetEase(Ease.OutQuart);
+     //   ButtonsTransform.transform.DOMoveX(-200, 0.1f).SetEase(Ease.Linear);
+     //   PlaneTransform.transform.DOLocalMove(new Vector2(675, 193), 1f).SetEase(Ease.OutQuart);
 
         GameStartinfoPanel.SetActive(true);
         levelText.text = levelinfo[SceneNumber - 1].levelTextName;
@@ -59,12 +63,13 @@ public class OverAllGameManager : MonoBehaviour
 
     public void BackButton()
     {
-        InstructionsPanel.transform.DOScale(0, 0.5f).SetEase(Ease.OutQuart);
+        ButtonsMainMenus.SetActive(true);
+    //    InstructionsPanel.transform.DOScale(0, 0.5f).SetEase(Ease.OutQuart);
         //this code is implemented on MainMenu button in 2nd Panel 
-        BgImage.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuart);
+     //   BgImage.transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuart);
         PlayButtonParent.transform.DOMoveY(-400, 0.5f).SetEase(Ease.OutQuart);
-        ButtonsTransform.transform.DOMoveX(200, 1f).SetEase(Ease.OutQuart);
-        PlaneTransform.transform.DOLocalMove(new Vector2(0, -389f), 2f).SetEase(Ease.OutQuart);
+     //   ButtonsTransform.transform.DOMoveX(200, 1f).SetEase(Ease.OutQuart);
+     //   PlaneTransform.transform.DOLocalMove(new Vector2(0, -389f), 2f).SetEase(Ease.OutQuart);
 
 
     }

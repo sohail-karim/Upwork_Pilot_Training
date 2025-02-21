@@ -258,6 +258,15 @@ public class MotionGridManager : MonoBehaviour
         PlayerPrefs.SetFloat("LerpSpeed", lerpSpeed.value);
         PlayerPrefs.SetFloat("MaxSpeed", MoveSpeed.value);
     } 
+
+    public void Exitgame(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
+    public void AgainStartLevel(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
 }
 
 
