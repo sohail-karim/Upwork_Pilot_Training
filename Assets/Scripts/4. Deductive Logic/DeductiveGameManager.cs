@@ -44,8 +44,8 @@ public class DeductiveGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
+        CorrectAns = 0; QuestiosnAttempted = 0; // Intialize the Correct Answers and Questions Attempted to Zero
         levelLoader4 = LevelLoader4.instance;
         levelLoader5 = LevelLoader5.instance;
         PlayerlevelsList.Clear();

@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,8 @@ public class BallManager : MonoBehaviour
     public GameObject ballPrefab;
     public int minBalls = 8;
     public int maxBalls = 13;
+    [Space]
+ 
 
     private int ballCount;
     public Vector2 spawnRange = new Vector2(2f, 2f);
@@ -16,9 +20,9 @@ public class BallManager : MonoBehaviour
     // Difficulty ranges for ball counts
     private readonly (int min, int max)[] difficultyRanges = new (int, int)[]
     {
-        (5, 8), // Easy
-        (8, 10), // Medium
-        (10, 12)  // Hard
+        (6, 8), // Easy
+        (9, 11), // Medium
+        (12, 14)  // Hard
     };
 
 
@@ -47,8 +51,16 @@ public class BallManager : MonoBehaviour
     {
         
         currentDifficultyLevel = 0; // Start at Easy difficulty
-        SpawnBalls();
+    //   SpawnBalls();
+      
     }
+
+    public int getCurrentDifficultyLevel()
+    {
+        return currentDifficultyLevel;
+    }
+
+
 
     public void SpawnBalls()
     {

@@ -239,10 +239,10 @@ TextureImporter:
       name: Pilot Testing Atlas_6
       rect:
         serializedVersion: 2
-        x: 2225
-        y: 2927
-        width: 313
-        height: 329
+        x: 2206
+        y: 2896
+        width: 348
+        height: 393
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

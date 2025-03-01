@@ -2,7 +2,7 @@
 
 public class BallMovement : MonoBehaviour
 {
-    public float speed = 3f;                  // Speed of the balls
+    public float speed = 5f;                  // Speed of the balls
     public float circleRadius;               // Automatically calculated radius
     private Vector2 circleCenter;             // Center position of the circle
     private Rigidbody2D rb;
@@ -121,7 +121,7 @@ public class BallMovement : MonoBehaviour
     void SetNewRandomDirection()
     {
         // Generate a random direction for the ball to start moving
-        float randomAngle = Random.Range(0f, 2f * Mathf.PI);
+        float randomAngle = Random.Range(0f, 1.5f * Mathf.PI);
         Vector2 direction = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
 
         // Set the ball's initial velocity
