@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class ButtonManager : MonoBehaviour
 {
     public Button[] buttons;
-    public TextMeshProUGUI resultText;
+  //  public TextMeshProUGUI resultText;
     public BallManager ballManager;
 
     [Header("CountDownTimer")]
@@ -104,6 +105,9 @@ public class ButtonManager : MonoBehaviour
         float percentage = ((float)CorrectAns / QuestiosnAttempted) * 100f;
 
         Debug.Log("Correct Answers: " + CorrectAns + " Total Questions Attempted: " + QuestiosnAttempted + " Percentage: " + percentage);
+        string iconPath = Path.Combine(Application.dataPath, "Sprites+UI/Pilot Testing Atlas_6.png");
+
+        ResultsManager.Instance.UpdateStats("Monitoring Ability", 0, QuestiosnAttempted, CorrectAns);
 
         // Format the result as a percentage
         string result = percentage.ToString("F2") + "%"; // "F2" limits to 2 decimal places
@@ -122,7 +126,6 @@ public class ButtonManager : MonoBehaviour
             yield return new WaitForSeconds(1); // Then wait
             _CountDownTimer--;
         }
-        ballManager.getCurrentDifficultyLevel();
         _StartPanel.SetActive(false);
         ballManager.SpawnBalls();
         isTimerRunning = true;
@@ -168,30 +171,30 @@ public class ButtonManager : MonoBehaviour
             int number = uniqueNumbers[i];
             TextMeshProUGUI buttonText = buttons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = number.ToString();
-            int buttonNumber = number;
             buttons[i].GetComponent<Image>().color = buttonColor; // 2F8DC3 button colors
             buttons[i].onClick.RemoveAllListeners();
-            buttons[i].onClick.AddListener(() => OnButtonClick(buttonNumber, correctAnswer));
+            buttons[i].onClick.AddListener(() => OnButtonClick(number, correctAnswer));
         }
     }
 
     void OnButtonClick(int selectedNumber, int correctAnswer)
     {
+        Debug.Log($"Button Clicked: {selectedNumber}, Correct Answer: {correctAnswer}");
         QuestiosnAttempted++;
         Button clickedButton = Array.Find(buttons, button => button.GetComponentInChildren<TextMeshProUGUI>().text == selectedNumber.ToString());
         Image buttonImage = clickedButton.GetComponent<Image>();  // Get the Image component of the button
         if (selectedNumber == correctAnswer)
         {
             IncreaseScore();
-            resultText.color = Color.green;
-            resultText.text = "Correct response";
+         //   resultText.color = Color.green;
+         //   resultText.text = "Correct response";
             buttonImage.color = Color.green;  // Change the button color to green
             StartCoroutine(RestartGameAfterDelay());
         }
         else
         {
-            resultText.color = Color.red;
-            resultText.text = "Wrong response. Correct Ans is " + correctAnswer;
+          //  resultText.color = Color.red;
+          //  resultText.text = "Wrong response. Correct Ans is " + correctAnswer;
             buttonImage.color = Color.red;  // Change the button color to red
             StartCoroutine(RestartGameAfterDelay());
         }
@@ -206,8 +209,7 @@ public class ButtonManager : MonoBehaviour
 
         StopAllBalls(); // Stop ball movement
         yield return new WaitForSeconds(2);   // Wait for 2 seconds
-        ballManager.increaseDifficulty();     // Increase the difficulty level
-        resultText.text = "";                 // Clear result text
+     //   resultText.text = "";                 // Clear result text
         ClearBalls();   // Clear existing balls
         ballManager.SpawnBalls();             // Spawn new balls
         SetupLevel();                         // Reset buttons with new values

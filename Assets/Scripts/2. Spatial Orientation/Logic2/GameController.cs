@@ -18,16 +18,16 @@ public class GameController : MonoBehaviour
     Direction dirPlaneToBeacon;
     Direction dirRelativePlaneToBeacon; // dirPlaneToBeacon from the axis of the plane
 
-    Direction directionGuess = Direction.Null; // the direction the plane is facing
-    Direction locationGuess = Direction.Null; // which square around the beacon the plane is in
+    [SerializeField]  Direction directionGuess = Direction.Null; // the direction the plane is facing
+    [SerializeField] Direction locationGuess = Direction.Null; // which square around the beacon the plane is in
 
 
     bool isCorrect = false;
     bool hasGuessed = true;
     bool stopTimer = false;
 
-    int questionsAnswered = 0;
-    int questionsCorrect = 0;
+    [SerializeField] int questionsAnswered = 0;
+    [SerializeField] int questionsCorrect = 0;
 
     private float timeLeft = 10f;
 
@@ -223,10 +223,18 @@ public class GameController : MonoBehaviour
         switch (dir) {
             case "North":
                 return Direction.North;
+            case "NorthWest":
+                return Direction.NorthWest;
             case "East":
                 return Direction.East;
+            case "NorthEast":
+                return Direction.NorthEast;
             case "South":
                 return Direction.South;
+            case "SouthEast":
+                return Direction.SouthEast;
+            case "SouthWest":
+                return Direction.SouthWest;
             case "West":
                 return Direction.West;
             default:

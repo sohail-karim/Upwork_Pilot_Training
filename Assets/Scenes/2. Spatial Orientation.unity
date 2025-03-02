@@ -5678,6 +5678,10 @@ MonoBehaviour:
   - {fileID: 5942888838061646183, guid: a333b63f4df6bf3449d1c87189e16201, type: 3}
   GyroDirectionsSpawnPoint: {fileID: 47862625}
   TimerSlider: {fileID: 1244885294}
+  directionGuess: 360
+  locationGuess: 360
+  questionsAnswered: 0
+  questionsCorrect: 0
 --- !u!1 &1818353721
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,19 +14,6 @@ public class BallManager : MonoBehaviour
     private int ballCount;
     public Vector2 spawnRange = new Vector2(2f, 2f);
 
-    private int currentDifficultyLevel; // Tracks the current difficulty level
-    private int LevelsPlayedinCurrentDifficulty; // Tracks the number of levels played in the current difficulty level
-
-    // Difficulty ranges for ball counts
-    private readonly (int min, int max)[] difficultyRanges = new (int, int)[]
-    {
-        (6, 8), // Easy
-        (9, 11), // Medium
-        (12, 14)  // Hard
-    };
-
-
-
     private static BallManager _instance;
 
     public static BallManager instance
@@ -50,22 +37,17 @@ public class BallManager : MonoBehaviour
     void Start()
     {
         
-        currentDifficultyLevel = 0; // Start at Easy difficulty
+     
     //   SpawnBalls();
       
     }
 
-    public int getCurrentDifficultyLevel()
-    {
-        return currentDifficultyLevel;
-    }
 
 
 
     public void SpawnBalls()
     {
-        // Get the range for the current difficulty level
-        var (minBalls, maxBalls) = difficultyRanges[currentDifficultyLevel];
+
 
         // Randomly select the number of balls to spawn within the range
         ballCount = Random.Range(minBalls, maxBalls + 1);
@@ -103,16 +85,4 @@ public class BallManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void increaseDifficulty()
-    {
-        LevelsPlayedinCurrentDifficulty++;
-        if (LevelsPlayedinCurrentDifficulty == 3)
-        {
-            LevelsPlayedinCurrentDifficulty = 0;
-            if (currentDifficultyLevel < difficultyRanges.Length - 1)
-            {
-                currentDifficultyLevel++;
-            }
-        }
-    }
 }

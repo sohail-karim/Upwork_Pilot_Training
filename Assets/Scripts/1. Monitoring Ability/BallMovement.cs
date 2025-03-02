@@ -11,7 +11,7 @@ public class BallMovement : MonoBehaviour
     private float targetChangeDelay;     // Time delay before changing target (seconds)
     private float timeSinceLastChange = 0f;   // Track time since last target change
     private float currentSpeed;               // Current speed of the ball for smooth acceleration
-    public float slowingTime = 1f;           // Time to slow down before target change
+    public float slowingTime = 0.5f;           // Time to slow down before target change
     public float accelerationTime = 2f;      // Time to accelerate after target change
 
 

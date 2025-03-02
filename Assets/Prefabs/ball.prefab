@@ -127,5 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   circleRadius: 2.2
-  slowingTime: 0.25
+  slowingTime: 0.15
   accelerationTime: 0.3
