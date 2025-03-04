@@ -4,9 +4,30 @@ using UnityEngine;
 using Directions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class GameController : MonoBehaviour
 {
 
+    [Header("CountDownTimer")]
+    [SerializeField] int _CountDownTimer = 5; // Count down timer before game starts..
+    [SerializeField] TextMeshProUGUI _CountDownTimerText;
+    [SerializeField] GameObject CountDownTimerPanel; //CountDown Timer Panel..
+
+
+    [Header("GamePlayTimer")]
+    public float timeRemaining = 300f;
+    private bool isTimerRunning = true;
+    public TMP_Text text_timer;
+
+    [Header("Results")]
+    public int CorrectAns;
+    public int QuestiosnAttempted;
+    public GameObject ResultsPanel;
+    public TextMeshProUGUI ResultsText;
+    public TMP_Text attempted, correct;
+
+
+    [Space]
     public GameObject GyroCampus;
     public GameObject Arrow;
     public List<GameObject> directionPrefabs; // List of 8 direction prefabs (North, NorthEast, etc.)
@@ -36,11 +57,81 @@ public class GameController : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
         int screenWidth = Screen.width;
-        int screenHeight = Screen.height;
+        int screenHeight = Screen.height;    
+    }
 
+    private void Start()
+    {
+        isTimerRunning = false;
+        CountDownTimerPanel.SetActive(true);
+        StartCoroutine(CountDownTimer());
+        _CountDownTimer = 5;
+        _CountDownTimerText.text = _CountDownTimer.ToString();
         TimerSlider.maxValue = timeLeft;
+    }
 
+    IEnumerator CountDownTimer()
+    {
+        while (_CountDownTimer > 0)
+        {
+            Debug.Log("CountDownTimer: " + _CountDownTimer);
+            _CountDownTimerText.text = _CountDownTimer.ToString(); // Update UI first
+            yield return new WaitForSeconds(1); // Then wait
+            _CountDownTimer--;
+        }
+        CountDownTimerPanel.SetActive(false);
         StartNewQuestion();
+        isTimerRunning = true;
+
+    }
+
+    private void Update()
+    {
+        if (isTimerRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime; // Decrease time by delta time
+                UpdateTimerDisplay();
+            }
+            else
+            {
+                isTimerRunning = false;
+                timeRemaining = 0;
+                UpdateTimerDisplay();
+                ShowResults();  //Show Results when timer ends..
+                Debug.Log("Timer has ended.");
+            }
+        }
+    }
+
+    void UpdateTimerDisplay()
+    {
+        // Convert seconds into minutes and seconds format
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+        // Update the Text component
+        text_timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+
+    public void ShowResults()
+    {
+        isTimerRunning = false;
+        // Perform floating-point division
+        float percentage = ((float)questionsCorrect / questionsAnswered) * 100f;
+
+        Debug.Log("Correct Answers: " + questionsCorrect + " Total Questions Attempted: " + questionsAnswered + " Percentage: " + percentage);
+
+        ResultsManager.Instance.UpdateStats("Spatial Orientation", 1, questionsAnswered, questionsCorrect);
+
+        // Format the result as a percentage
+        string result = percentage.ToString("F2") + "%"; // "F2" limits to 2 decimal places
+        ResultsText.text = result;
+        attempted.text = questionsAnswered.ToString();
+        correct.text = questionsCorrect.ToString();
+        ResultsPanel.SetActive(true);
     }
 
 
@@ -297,6 +388,11 @@ public class GameController : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void AgainPlay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
