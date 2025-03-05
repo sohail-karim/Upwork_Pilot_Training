@@ -182,7 +182,9 @@ public class ButtonManager : MonoBehaviour
         Debug.Log($"Button Clicked: {selectedNumber}, Correct Answer: {correctAnswer}");
         QuestiosnAttempted++;
         Button clickedButton = Array.Find(buttons, button => button.GetComponentInChildren<TextMeshProUGUI>().text == selectedNumber.ToString());
+        Button CorrectButton = Array.Find(buttons, button => button.GetComponentInChildren<TextMeshProUGUI>().text == correctAnswer.ToString());
         Image buttonImage = clickedButton.GetComponent<Image>();  // Get the Image component of the button
+        Image CorrectbuttonImage = CorrectButton.GetComponent<Image>();  // Get the Image component of the button
         if (selectedNumber == correctAnswer)
         {
             IncreaseScore();
@@ -193,11 +195,17 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-          //  resultText.color = Color.red;
-          //  resultText.text = "Wrong response. Correct Ans is " + correctAnswer;
+            //  resultText.color = Color.red;
+            //  resultText.text = "Wrong response. Correct Ans is " + correctAnswer;
+            CorrectbuttonImage.color = Color.green;
             buttonImage.color = Color.red;  // Change the button color to red
             StartCoroutine(RestartGameAfterDelay());
         }
+    }
+
+    void HighlightCorrectButton()
+    {
+
     }
     private void IncreaseScore()
     {
