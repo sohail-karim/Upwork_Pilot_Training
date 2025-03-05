@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,8 @@ public class ButtonBorderToggle : MonoBehaviour
 {
     public GameObject border; // Assign the border GameObject in the Inspector
     public Image GreenImge;
+
+    public GameObject[] obj;
 
     private void Start()
     {
@@ -16,6 +19,10 @@ public class ButtonBorderToggle : MonoBehaviour
 
     public void ToggleBorder()
     {
+        foreach(GameObject o in obj)
+        {
+            o.GetComponentsInChildren<Image>()[1].enabled = false;
+        }
         if (border != null)
         {
             border.SetActive(!border.activeSelf); // Toggle border visibility

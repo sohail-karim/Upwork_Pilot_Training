@@ -5,6 +5,7 @@ using Directions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 public class GameController : MonoBehaviour
 {
 
@@ -31,8 +32,9 @@ public class GameController : MonoBehaviour
     public GameObject GyroCampus;
     public GameObject Arrow;
     public List<GameObject> directionPrefabs; // List of 8 direction prefabs (North, NorthEast, etc.)
+    public List<GameObject> NumberGridPrefabs;
     public Transform GyroDirectionsSpawnPoint;
-    public Slider TimerSlider;
+  //  public Slider TimerSlider;
 
     Direction dirPlaneTravel;
     Direction dirBeaconToPlane;
@@ -50,7 +52,11 @@ public class GameController : MonoBehaviour
     [SerializeField] int questionsAnswered = 0;
     [SerializeField] int questionsCorrect = 0;
 
-    private float timeLeft = 10f;
+
+    [SerializeField] Button clickedButton;
+
+    //implementation for everyquestion timer..
+  //  private float timeLeft = 10f;
 
     void Awake()
     {
@@ -67,7 +73,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(CountDownTimer());
         _CountDownTimer = 5;
         _CountDownTimerText.text = _CountDownTimer.ToString();
-        TimerSlider.maxValue = timeLeft;
+     //   TimerSlider.maxValue = timeLeft;
     }
 
     IEnumerator CountDownTimer()
@@ -137,8 +143,8 @@ public class GameController : MonoBehaviour
 
     public void StartNewQuestion()
     {
-        timeLeft = 10f;
-        TimerSlider.maxValue = timeLeft;
+     //   timeLeft = 10f;
+     //   TimerSlider.maxValue = timeLeft;
         ClearSpawnedDirections(GyroDirectionsSpawnPoint);
           
         if (!hasGuessed)
@@ -146,11 +152,11 @@ public class GameController : MonoBehaviour
             Debug.Log("Need to submit a guess first");
             return;
         }
-        if (timeLeft <= 0)
-        {
-            Debug.Log("Time's up!");
-            return;
-        }
+    //  if (timeLeft <= 0)
+    //  {
+    //      Debug.Log("Time's up!");
+    //      return;
+    //  }
 
 
         dirPlaneTravel = GetRandomDirection(true);
@@ -244,26 +250,26 @@ public class GameController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-
-        if (!stopTimer)
-        {
-            if (timeLeft <= 0)
-            {
-                Debug.Log("Time's up!");
-                hasGuessed = true;
-                stopTimer = true;
-                StartCoroutine(HighLightCorrectAns(dirPlaneTravel.ToString(), dirBeaconToPlane.ToString()));
-                return;
-            }
-            timeLeft -= Time.deltaTime;
-            TimerSlider.value = timeLeft;
-        }
-       
-
-
-    }
+// void FixedUpdate()
+// {
+//
+//     if (!stopTimer)
+//     {
+//         if (timeLeft <= 0)
+//         {
+//             Debug.Log("Time's up!");
+//             hasGuessed = true;
+//             stopTimer = true;
+//             StartCoroutine(HighLightCorrectAns(dirPlaneTravel.ToString(), dirBeaconToPlane.ToString()));
+//             return;
+//         }
+//         timeLeft -= Time.deltaTime;
+//         TimerSlider.value = timeLeft;
+//     }
+//    
+//
+//
+// }
 
     private void RotateGyrocompass() {
         int angle = dirPlaneTravel.GetAngle();
@@ -299,6 +305,10 @@ public class GameController : MonoBehaviour
         Direction direction = GetDirectionFromString(dir);
         locationGuess = Direction.Null; // location can only be set after a guess, so reset when a new guess is made
         directionGuess = direction;
+        if (clickedButton != null)
+        {
+            ResetColor();
+        }
     }
 
     public void GuessLocation(string dir) {
@@ -307,7 +317,22 @@ public class GameController : MonoBehaviour
             Debug.Log("Guess the direction first");
             return;
         }
+
+        //used to get the button pressed so we can highlight it yellow.      
+    //    btn.colors = UpdateButtonNormalColor(Color.yellow); 
+
         locationGuess = direction;
+
+     Invoke("SubmitGuess", 0.5f);
+    }
+
+    public void ButtonClicked(Button btn)
+    {
+        clickedButton = btn;
+        if (directionGuess != Direction.Null)
+        {
+            clickedButton.image.color = Color.yellow;
+        } 
     }
 
     private Direction GetDirectionFromString(string dir) {
@@ -335,9 +360,9 @@ public class GameController : MonoBehaviour
     }
 
     public void SubmitGuess() {
-        if(timeLeft <= 0) {
-            return;
-        }
+   //   if(timeLeft <= 0) {
+   //       return;
+   //   }
 
         if(directionGuess == Direction.Null || locationGuess == Direction.Null) {
             Debug.Log("Need to guess both direction and location");
@@ -367,14 +392,27 @@ public class GameController : MonoBehaviour
       //  answerText.text = "Incorrect!" + "\nCorrect Direction: " + dirPlaneTravel + "\nCorrect Location: " + dirbeaconToPlane;
         string finalName = dirPlaneTravel + "(Clone)";
         GameObject.Find(finalName).GetComponent<ButtonBorderToggle>().EnableImage();
-        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Button>().colors = UpdateButtonNormalColor(Color.green);
+        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.green;
 
         yield return new   WaitForSeconds(1);
 
-        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Button>().colors = UpdateButtonNormalColor(Color.white);
+        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.white;
         hasGuessed = true;
+        if (clickedButton != null)
+        {
+            ResetColor();
+        }
         StartNewQuestion();
         stopTimer = false;
+    }
+
+    void ResetColor()
+    {
+        foreach(GameObject obj in NumberGridPrefabs)
+        {
+          //  obj.GetComponent<Button>().colors = UpdateButtonNormalColor(Color.yellow);
+            obj.GetComponent<Image>().color = Color.white;
+        }
     }
 
     private ColorBlock UpdateButtonNormalColor(Color newNormalColor)

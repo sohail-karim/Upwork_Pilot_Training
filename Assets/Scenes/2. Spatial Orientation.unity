@@ -713,8 +713,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -744,6 +744,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: North
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 227494146}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &227494147
@@ -954,7 +966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -202.4, y: -40}
+  m_AnchoredPosition: {x: -150, y: -40}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287682859
@@ -1713,7 +1725,7 @@ RectTransform:
   m_Father: {fileID: 931052960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2194,8 +2206,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2225,6 +2237,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: East
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 575103743}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &575103744
@@ -2432,7 +2456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHECK ANS
+  m_text: NEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2779,7 +2803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &754168947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3126,8 +3150,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3157,6 +3181,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: SouthEast
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 967325620}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &967325621
@@ -3543,8 +3579,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3574,6 +3610,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: SouthWest
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1046555285}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1046555286
@@ -3997,7 +4045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1244885293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4379,8 +4427,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4410,6 +4458,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: South
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1331862883}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1331862884
@@ -4512,8 +4572,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4543,6 +4603,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: NorthWest
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1352562592}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1352562593
@@ -5047,8 +5119,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5260,9 +5332,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 47862625}
     m_Modifications:
+    - target: {fileID: 1054802598029299725, guid: 7d9bf78bd65c12a418e071ebb634effd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3104625721813635108, guid: 7d9bf78bd65c12a418e071ebb634effd, type: 3}
       propertyPath: m_Name
       value: East
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180408903045249337, guid: 7d9bf78bd65c12a418e071ebb634effd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8452092174661313661, guid: 7d9bf78bd65c12a418e071ebb634effd, type: 3}
       propertyPath: m_Pivot.x
@@ -5686,8 +5766,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5717,6 +5797,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: NorthEast
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1716327564}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1716327565
@@ -6229,7 +6321,7 @@ MonoBehaviour:
   _CountDownTimer: 5
   _CountDownTimerText: {fileID: 1085943243}
   CountDownTimerPanel: {fileID: 1085943242}
-  timeRemaining: 10
+  timeRemaining: 300
   text_timer: {fileID: 1755346573}
   CorrectAns: 0
   QuestiosnAttempted: 0
@@ -6244,12 +6336,21 @@ MonoBehaviour:
   - {fileID: 4395407804854298029, guid: 3898b6b4f2909ad498940c38e1a9cc25, type: 3}
   - {fileID: 8056230688630007544, guid: 6ac13f9fc1fcf214695511b0bdb7b6c4, type: 3}
   - {fileID: 5942888838061646183, guid: a333b63f4df6bf3449d1c87189e16201, type: 3}
+  NumberGridPrefabs:
+  - {fileID: 1352562590}
+  - {fileID: 1967730897}
+  - {fileID: 1046555283}
+  - {fileID: 227494144}
+  - {fileID: 1331862881}
+  - {fileID: 1716327562}
+  - {fileID: 575103741}
+  - {fileID: 967325618}
   GyroDirectionsSpawnPoint: {fileID: 47862625}
-  TimerSlider: {fileID: 1244885294}
   directionGuess: 360
   locationGuess: 360
   questionsAnswered: 0
   questionsCorrect: 0
+  clickedButton: {fileID: 0}
 --- !u!1 &1818353721
 GameObject:
   m_ObjectHideFlags: 0
@@ -6915,8 +7016,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0.972549, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6946,6 +7047,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: West
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1791526631}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1967730899}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1967730900
