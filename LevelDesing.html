@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Generator</title>
+    <style>
+        #grid {
+            display: grid;
+            gap: 1px;
+            background-color: white;
+        }
+        .cell {
+            background-color: lightgrey;
+            border: 1px solid black;
+        }
+        .block, .red-spot, .black-spot {
+            position: absolute;
+            border: 1px solid black;
+            cursor: grab;
+        }
+        .red-spot { background-color: red; }
+        .black-spot { background-color: black; }
+        .dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <h1>Grid Layout Generator</h1>
+    <form id="gridForm">
+        <label for="rows">Rows:</label>
+        <input type="number" id="rows" name="rows" min="1" required>
+        <label for="cols">Columns:</label>
+        <input type="number" id="cols" name="cols" min="1" required>
+        <label for="blocks">Number of Blocks:</label>
+        <input type="number" id="blocks" name="blocks" min="1" required>
+        <label for="moves">Number of Moves:</label>
+        <input type="number" id="moves" name="moves" min="1" required>
+        <button type="submit">Generate Grid</button>
+    </form>
+    <button id="saveScreenshot">Save Screenshot</button>
+    <div id="grid" style="position: relative;"></div>
+
+    <script>
+        document.getElementById('gridForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            generateGrid();
+        });
+
+        document.getElementById('saveScreenshot').addEventListener('click', function () {
+            saveScreenshot();
+        });
+
+        function generateGrid() {
+            const rows = parseInt(document.getElementById('rows').value);
+            const cols = parseInt(document.getElementById('cols').value);
+            const blocks = parseInt(document.getElementById('blocks').value);
+            const moves = parseInt(document.getElementById('moves').value);
+
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            grid.style.width = `${cols * 50}px`;
+            grid.style.height = `${rows * 50}px`;
+            grid.style.gridTemplateRows = `repeat(${rows}, 50px)`;
+            grid.style.gridTemplateColumns = `repeat(${cols}, 50px)`;
+
+            const cells = Array.from({ length: rows * cols }, () => document.createElement('div'));
+            cells.forEach(cell => cell.className = 'cell');
+            cells.forEach(cell => grid.appendChild(cell));
+
+            const occupied = Array.from({ length: rows }, () => Array(cols).fill(false));
+
+            for (let i = 0; i < blocks; i++) {
+                placeRandomObject(grid, rows, cols, occupied);
+            }
+            placeSpots(grid, rows, cols, occupied, moves);
+
+            const redSpot = document.querySelector('.red-spot');
+            const blackSpot = document.querySelector('.black-spot');
+            const redPos = getGridPosition(redSpot);
+            const blackPos = getGridPosition(blackSpot);
+            const solvable = isSolvable(occupied, rows, cols, redPos, blackPos, moves);
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function placeRandomObject(grid, rows, cols, occupied) {
+            const sizes = [
+                { rows: 1, cols: 1 },
+                { rows: 2, cols: 1 },
+                { rows: 1, cols: 2 },
+               
+                { rows: 3, cols: 1 },
+                { rows: 1, cols: 3 },
+            ];
+
+            const size = sizes[Math.floor(Math.random() * sizes.length)];
+            const color = getRandomColor();
+
+            placeObject(grid, rows, cols, occupied, 'block', size.rows, size.cols, color);
+        }
+
+        function placeObject(grid, rows, cols, occupied, className, objRows, objCols, color) {
+            let attempts = 0;
+            let placed = false;
+            while (!placed && attempts < 100) {
+                const row = Math.floor(Math.random() * rows);
+                const col = Math.floor(Math.random() * cols);
+                if (canPlace(occupied, rows, cols, row, col, objRows, objCols)) {
+                    const div = document.createElement('div');
+                    div.className = className;
+                    div.style.width = `${objCols * 50}px`;
+                    div.style.height = `${objRows * 50}px`;
+                    div.style.top = `${row * 50}px`;
+                    div.style.left = `${col * 50}px`;
+                    div.style.backgroundColor = color;
+                    div.draggable = true; // Make draggable
+                    grid.appendChild(div);
+                    addDragEvents(div); // Add drag events
+                    markOccupied(occupied, row, col, objRows, objCols);
+                    placed = true;
+                }
+                attempts++;
+            }
+        }
+
+        function placeSpots(grid, rows, cols, occupied, moves) {
+            let placedRed = false;
+            let placedBlack = false;
+            let redPos, blackPos;
+
+            while (!placedRed) {
+                const row = Math.floor(Math.random() * rows);
+                const col = Math.floor(Math.random() * cols);
+                if (canPlace(occupied, rows, cols, row, col, 1, 1)) {
+                    const redDiv = document.createElement('div');
+                    redDiv.className = 'red-spot';
+                    redDiv.style.width = `50px`;
+                    redDiv.style.height = `50px`;
+                    redDiv.style.top = `${row * 50}px`;
+                    redDiv.style.left = `${col * 50}px`;
+                    redDiv.draggable = true; // Make draggable
+                    grid.appendChild(redDiv);
+                    addDragEvents(redDiv); // Add drag events
+                    markOccupied(occupied, row, col, 1, 1);
+                    redPos = { row, col };
+                    placedRed = true;
+                }
+            }
+
+            while (!placedBlack) {
+                const row = Math.floor(Math.random() * rows);
+                const col = Math.floor(Math.random() * cols);
+                if (canPlace(occupied, rows, cols, row, col, 1, 1)) {
+                    const distance = Math.abs(row - redPos.row) + Math.abs(col - redPos.col);
+                    if (distance >= moves) {
+                        const blackDiv = document.createElement('div');
+                        blackDiv.className = 'black-spot';
+                        blackDiv.style.width = `50px`;
+                        blackDiv.style.height = `50px`;
+                        blackDiv.style.top = `${row * 50}px`;
+                        blackDiv.style.left = `${col * 50}px`;
+                        blackDiv.draggable = true; // Make draggable
+                        grid.appendChild(blackDiv);
+                        addDragEvents(blackDiv); // Add drag events
+                        markOccupied(occupied, row, col, 1, 1);
+                        blackPos = { row, col };
+                        placedBlack = true;
+                    }
+                }
+            }
+        }
+
+        function addDragEvents(element) {
+            element.addEventListener('dragstart', function (e) {
+                e.dataTransfer.setData('text/plain', null); // For Firefox compatibility
+                this.classList.add('dragging');
+            });
+
+            element.addEventListener('dragend', function () {
+                this.classList.remove('dragging');
+            });
+
+            element.addEventListener('drag', function (e) {
+                if (e.pageX || e.pageY) {
+                    this.style.top = `${e.pageY - this.offsetHeight / 2}px`;
+                    this.style.left = `${e.pageX - this.offsetWidth / 2}px`;
+                }
+            });
+
+            element.addEventListener('dragover', function (e) {
+                e.preventDefault();
+            });
+
+            element.addEventListener('drop', function (e) {
+                e.preventDefault();
+                const rect = document.getElementById('grid').getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const col = Math.floor(x / 50);
+                const row = Math.floor(y / 50);
+                this.style.top = `${row * 50}px`;
+                this.style.left = `${col * 50}px`;
+            });
+        }
+        function canPlace(occupied, rows, cols, row, col, objRows, objCols) {
+            if (row + objRows > rows || col + objCols > cols) return false;
+            for (let r = 0; r < objRows; r++) {
+                for (let c = 0; c < objCols; c++) {
+                    if (occupied[row + r][col + c]) return false;
+                }
+            }
+            return true;
+        }
+
+        function markOccupied(occupied, row, col, objRows, objCols) {
+            for (let r = 0; r < objRows; r++) {
+                for (let c = 0; c < objCols; c++) {
+                    occupied[row + r][col + c] = true;
+                }
+            }
+        }
+
+        function getGridPosition(element) {
+            const top = parseInt(element.style.top) / 50;
+            const left = parseInt(element.style.left) / 50;
+            return { row: top, col: left };
+        }
+
+        function isSolvable(occupied, rows, cols, redPos, blackPos, moves) {
+            function backtrack(row, col, remainingMoves) {
+                if (row === blackPos.row && col === blackPos.col) {
+                    return true;
+                }
+                if (remainingMoves === 0) {
+                    return false;
+                }
+                const directions = [
+                    { dr: -1, dc: 0 }, // up
+                    { dr: 1, dc: 0 },  // down
+                    { dr: 0, dc: -1 }, // left
+                    { dr: 0, dc: 1 },  // right
+                ];
+                for (const { dr, dc } of directions) {
+                    const newRow = row + dr;
+                    const newCol = col + dc;
+                    if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && !occupied[newRow][newCol]) {
+                        occupied[newRow][newCol] = true;
+                        if (backtrack(newRow, newCol, remainingMoves - 1)) {
+                            return true;
+                        }
+                        occupied[newRow][newCol] = false;
+                    }
+                }
+                return false;
+            }
+            return backtrack(redPos.row, redPos.col, moves);
+        }
+
+        function saveScreenshot() {
+            html2canvas(document.getElementById('grid')).then(canvas => {
+                canvas.toBlob(blob => {
+                    saveAs(blob, 'grid_screenshot.png');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

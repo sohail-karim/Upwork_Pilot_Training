@@ -162,10 +162,9 @@ GameObject:
   - component: {fileID: 4242043237273721750}
   - component: {fileID: 8936346584196377646}
   - component: {fileID: 5782661939450975504}
-  - component: {fileID: 3180329387803869992}
   m_Layer: 5
   m_Name: East
-  m_TagString: Untagged
+  m_TagString: PlaneButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,33 +272,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8936346584196377646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3180329387803869992}
-        m_TargetAssemblyTypeName: ButtonBorderToggle, Assembly-CSharp
-        m_MethodName: ToggleBorder
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &3180329387803869992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3104625721813635108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 620841c0da473364c8b4e4a3240e8e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  border: {fileID: 1054802598029299725}
-  GreenImge: {fileID: 8180408903045249337}
+      m_Calls: []
 --- !u!1 &4269725619666233870
 GameObject:
   m_ObjectHideFlags: 0

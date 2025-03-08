@@ -54,9 +54,10 @@ public class GameController : MonoBehaviour
 
 
     [SerializeField] Button clickedButton;
+    [SerializeField] GameObject buttonsparent;
 
     //implementation for everyquestion timer..
-  //  private float timeLeft = 10f;
+    //  private float timeLeft = 10f;
 
     void Awake()
     {
@@ -80,7 +81,6 @@ public class GameController : MonoBehaviour
     {
         while (_CountDownTimer > 0)
         {
-            Debug.Log("CountDownTimer: " + _CountDownTimer);
             _CountDownTimerText.text = _CountDownTimer.ToString(); // Update UI first
             yield return new WaitForSeconds(1); // Then wait
             _CountDownTimer--;
@@ -143,15 +143,17 @@ public class GameController : MonoBehaviour
 
     public void StartNewQuestion()
     {
-     //   timeLeft = 10f;
-     //   TimerSlider.maxValue = timeLeft;
+
+
+        //   timeLeft = 10f;
+        //   TimerSlider.maxValue = timeLeft;
         ClearSpawnedDirections(GyroDirectionsSpawnPoint);
-          
         if (!hasGuessed)
         {
             Debug.Log("Need to submit a guess first");
             return;
         }
+
     //  if (timeLeft <= 0)
     //  {
     //      Debug.Log("Time's up!");
@@ -161,11 +163,12 @@ public class GameController : MonoBehaviour
 
         dirPlaneTravel = GetRandomDirection(true);
         dirBeaconToPlane = GetRandomDirection(false);
+     //   buttonsparent.GetComponent<ButtonBorderToggle>().DestroyAllButtons(); // Ensure old buttons are removed first
         SpawnDirectionPoints(dirPlaneTravel.ToString());
-
-
         RotateGyrocompass();
         RotateArrow();
+        
+        //   buttonsparent.GetComponent<ButtonBorderToggle>().UpdateButtonsArray(); // Ensure old buttons are removed first
 
         directionGuess = Direction.Null;
         locationGuess = Direction.Null;
@@ -188,6 +191,7 @@ public class GameController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        //Destroy all buttons of the Aeroplanes spawned..
     }
 
 
@@ -196,7 +200,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnDirectionPoints(string correctDirection)
     {
-
+        
         // Find the correct prefab
         GameObject correctPrefab = directionPrefabs.Find(prefab => prefab.name == correctDirection);
         if (correctPrefab == null)
@@ -228,7 +232,6 @@ public class GameController : MonoBehaviour
             selectedPrefabs[randomIndex] = temp;
 
         }
-
         // Spawn the prefabs at the spawn point
         foreach (GameObject prefab in selectedPrefabs)
         {
@@ -244,9 +247,9 @@ public class GameController : MonoBehaviour
                 Debug.LogWarning($"Prefab {prefab.name} does not have a Button component.");
             }
         }
-
         selectedPrefabs.Clear();
         availablePrefabs.Clear();
+        buttonsparent.SetActive(true);
     }
 
     // Update is called once per frame
@@ -305,6 +308,7 @@ public class GameController : MonoBehaviour
         Direction direction = GetDirectionFromString(dir);
         locationGuess = Direction.Null; // location can only be set after a guess, so reset when a new guess is made
         directionGuess = direction;
+
         if (clickedButton != null)
         {
             ResetColor();
@@ -331,7 +335,7 @@ public class GameController : MonoBehaviour
         clickedButton = btn;
         if (directionGuess != Direction.Null)
         {
-            clickedButton.image.color = Color.yellow;
+         //   clickedButton.image.color = Color.yellow;
         } 
     }
 
@@ -378,6 +382,7 @@ public class GameController : MonoBehaviour
         else {
             Debug.Log("Incorrect");
             stopTimer = true;
+           // StartCoroutine(HighLightWrongAns(directionGuess.ToString(), locationGuess.ToString()));
             StartCoroutine(HighLightCorrectAns(dirPlaneTravel.ToString(), dirBeaconToPlane.ToString()));
             isCorrect = false;
         }
@@ -391,7 +396,7 @@ public class GameController : MonoBehaviour
     {
       //  answerText.text = "Incorrect!" + "\nCorrect Direction: " + dirPlaneTravel + "\nCorrect Location: " + dirbeaconToPlane;
         string finalName = dirPlaneTravel + "(Clone)";
-        GameObject.Find(finalName).GetComponent<ButtonBorderToggle>().EnableImage();
+        GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().enabled = true;
         GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.green;
 
         yield return new   WaitForSeconds(1);
@@ -402,8 +407,23 @@ public class GameController : MonoBehaviour
         {
             ResetColor();
         }
+        buttonsparent.SetActive(false);
         StartNewQuestion();
         stopTimer = false;
+    }
+
+    IEnumerator HighLightWrongAns(string dirPlaneTravel, string dirbeaconToPlane)
+    {
+        //  answerText.text = "Incorrect!" + "\nCorrect Direction: " + dirPlaneTravel + "\nCorrect Location: " + dirbeaconToPlane;
+        string finalName = dirPlaneTravel + "(Clone)";
+        GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().enabled = true;
+        GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().color = Color.red;
+        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.red;
+
+        yield return new WaitForSeconds(1);
+
+        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.white;
+        
     }
 
     void ResetColor()
