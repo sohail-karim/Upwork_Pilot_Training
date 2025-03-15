@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 public class GameController : MonoBehaviour
 {
+ //   public RectTransform ScreenDivider;
 
     [Header("CountDownTimer")]
     [SerializeField] int _CountDownTimer = 5; // Count down timer before game starts..
@@ -61,10 +62,17 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
+      //  Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        int screenWidth = Screen.width;
-        int screenHeight = Screen.height;    
+    //  int screenWidth = Screen.width;
+    //  int screenHeight = Screen.height;
+    //  Debug.Log("Screen Width: " + screenWidth + " Screen Height: " + screenHeight);
+    //  ScreenDivider.sizeDelta = new Vector2(screenWidth, screenHeight);
+    //  RectTransform rt = (RectTransform)ScreenDivider.GetChild(0);
+    //  RectTransform rt2 = (RectTransform)ScreenDivider.GetChild(1);
+    //  rt.sizeDelta = new Vector2(screenWidth, screenHeight/2);
+    //  rt2.sizeDelta = new Vector2(screenWidth, screenHeight/2);
+
     }
 
     private void Start()
@@ -147,6 +155,7 @@ public class GameController : MonoBehaviour
 
         //   timeLeft = 10f;
         //   TimerSlider.maxValue = timeLeft;
+        GyroDirectionsSpawnPoint.GetComponent<ButtonBorderToggle>().enabled = true;
         ClearSpawnedDirections(GyroDirectionsSpawnPoint);
         if (!hasGuessed)
         {
@@ -367,7 +376,6 @@ public class GameController : MonoBehaviour
    //   if(timeLeft <= 0) {
    //       return;
    //   }
-
         if(directionGuess == Direction.Null || locationGuess == Direction.Null) {
             Debug.Log("Need to guess both direction and location");
             return;
@@ -382,13 +390,11 @@ public class GameController : MonoBehaviour
         else {
             Debug.Log("Incorrect");
             stopTimer = true;
-           // StartCoroutine(HighLightWrongAns(directionGuess.ToString(), locationGuess.ToString()));
+            StartCoroutine(HighLightWrongAns(directionGuess.ToString(), locationGuess.ToString()));
             StartCoroutine(HighLightCorrectAns(dirPlaneTravel.ToString(), dirBeaconToPlane.ToString()));
             isCorrect = false;
         }
         questionsAnswered++;
-        
-
     }
 
 
@@ -397,6 +403,7 @@ public class GameController : MonoBehaviour
       //  answerText.text = "Incorrect!" + "\nCorrect Direction: " + dirPlaneTravel + "\nCorrect Location: " + dirbeaconToPlane;
         string finalName = dirPlaneTravel + "(Clone)";
         GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().enabled = true;
+        GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().color = Color.green;
         GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.green;
 
         yield return new   WaitForSeconds(1);
@@ -419,11 +426,7 @@ public class GameController : MonoBehaviour
         GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().enabled = true;
         GameObject.Find(finalName).transform.GetChild(0).GetComponent<Image>().color = Color.red;
         GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.red;
-
-        yield return new WaitForSeconds(1);
-
-        GameObject.Find(dirbeaconToPlane).GetComponentInChildren<Image>().color = Color.white;
-        
+        yield return null;
     }
 
     void ResetColor()

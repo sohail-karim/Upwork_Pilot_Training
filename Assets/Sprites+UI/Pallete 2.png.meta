@@ -1,0 +1,564 @@
+fileFormatVersion: 2
+guid: 6a7f26d10c6239542afbcd24221cee53
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pallete 2_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 788
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a8d4c482fe93e47bb45e2a2d494b00
+      internalID: -855059944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_3
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 787
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5fd3b037c47b74fb7a5f4b7054fbc2
+      internalID: -434658283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_7
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 801
+        width: 151
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2609e31664fba9445a0c5f2ada3acdd0
+      internalID: -2059469512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_8
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 800
+        width: 161
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dff484935543ba488f15b74b2dc3a61
+      internalID: -2130663109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_67
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 355
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7e4e3b484d90d4f964eec394c44e26
+      internalID: -1770513777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_79
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 187
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56107aa36f2045c46ad6acdea0cfa839
+      internalID: -361229469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_81
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 181
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b53faae84b9484abfc5118f554aa69
+      internalID: -1528376304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_84
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 175
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77df8fcfe891b543ac5b47e9face14b
+      internalID: -2087710464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_86
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 169
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a333e9b5cfd86428ba896222979c19
+      internalID: -1687006123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_89
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 163
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf344f0d8a3e2b34fb8266d9e746ed68
+      internalID: 1363428090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_0
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 801
+        width: 158
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01a3c5684d08cc4c89c0fa8cb7f8e9a
+      internalID: -866269750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_1
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 369
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfc37347fef0b149ae59151cce88fae
+      internalID: 2080225538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_4
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 370
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc028b19169574348b9a913d90f5808e
+      internalID: -747132077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 108
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9acacb36938124a907b1eb8872642b
+      internalID: 1758927685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_6
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 109
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01880daf488869741b67a0ce2088cd1f
+      internalID: 1350463475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pallete 2_9
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 117
+        width: 265
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64abc08a52516c1429a16e36f9cf2cd3
+      internalID: 1383990150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pallete 2_0: -866269750
+      Pallete 2_1: 2080225538
+      Pallete 2_10: -1803800633
+      Pallete 2_100: 1899553028
+      Pallete 2_11: 632959387
+      Pallete 2_12: 1781348577
+      Pallete 2_13: -1579462222
+      Pallete 2_14: 18506934
+      Pallete 2_15: 81361313
+      Pallete 2_16: 434540392
+      Pallete 2_17: 1493461471
+      Pallete 2_18: -1235377203
+      Pallete 2_19: 1728226967
+      Pallete 2_2: -855059944
+      Pallete 2_20: -588726101
+      Pallete 2_21: 38338087
+      Pallete 2_22: 1750888295
+      Pallete 2_23: -62084249
+      Pallete 2_24: -613869760
+      Pallete 2_25: 265153856
+      Pallete 2_26: 2024348228
+      Pallete 2_27: 850984197
+      Pallete 2_28: 332217905
+      Pallete 2_29: 14736182
+      Pallete 2_3: -434658283
+      Pallete 2_30: 2078181575
+      Pallete 2_31: -1217079002
+      Pallete 2_32: 1071838352
+      Pallete 2_33: -2036230088
+      Pallete 2_34: 479253124
+      Pallete 2_35: -480318653
+      Pallete 2_36: -287654644
+      Pallete 2_37: 2002172529
+      Pallete 2_38: -467573712
+      Pallete 2_39: 920388588
+      Pallete 2_4: -747132077
+      Pallete 2_40: 543056172
+      Pallete 2_41: -962496794
+      Pallete 2_42: 2085374586
+      Pallete 2_43: -1021279574
+      Pallete 2_44: 1167867963
+      Pallete 2_45: -1827706798
+      Pallete 2_46: 1430368203
+      Pallete 2_47: -496777980
+      Pallete 2_48: 1172662351
+      Pallete 2_49: -913518764
+      Pallete 2_5: 1758927685
+      Pallete 2_50: 639849175
+      Pallete 2_51: 1008441254
+      Pallete 2_52: 1185806914
+      Pallete 2_53: -455293354
+      Pallete 2_54: -1880234026
+      Pallete 2_55: -1509817324
+      Pallete 2_56: 322329274
+      Pallete 2_57: 1410043536
+      Pallete 2_58: 1231946343
+      Pallete 2_59: -1199419264
+      Pallete 2_6: 1350463475
+      Pallete 2_60: -248710013
+      Pallete 2_61: -77266559
+      Pallete 2_62: 1674349801
+      Pallete 2_63: -833415614
+      Pallete 2_64: -1689893969
+      Pallete 2_65: 45378289
+      Pallete 2_66: -2105580338
+      Pallete 2_67: -1770513777
+      Pallete 2_68: 12499382
+      Pallete 2_69: 1616745448
+      Pallete 2_7: -2059469512
+      Pallete 2_70: 1165268406
+      Pallete 2_71: 2008863214
+      Pallete 2_72: -807921084
+      Pallete 2_73: -1514895527
+      Pallete 2_74: 852243942
+      Pallete 2_75: 175121072
+      Pallete 2_76: 480171760
+      Pallete 2_77: 1498434239
+      Pallete 2_78: -856800298
+      Pallete 2_79: -361229469
+      Pallete 2_8: -2130663109
+      Pallete 2_80: 1241103936
+      Pallete 2_81: -1528376304
+      Pallete 2_82: -2074263551
+      Pallete 2_83: -1328109396
+      Pallete 2_84: -2087710464
+      Pallete 2_85: -90919284
+      Pallete 2_86: -1687006123
+      Pallete 2_87: 242569597
+      Pallete 2_88: -335712913
+      Pallete 2_89: 1363428090
+      Pallete 2_9: 1383990150
+      Pallete 2_90: 717232973
+      Pallete 2_91: -292581031
+      Pallete 2_92: -1147703431
+      Pallete 2_93: -2040792357
+      Pallete 2_94: -1833059263
+      Pallete 2_95: -126827638
+      Pallete 2_96: -828523060
+      Pallete 2_97: -373190425
+      Pallete 2_98: -838607651
+      Pallete 2_99: -1362103049
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

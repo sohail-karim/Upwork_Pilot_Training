@@ -38,6 +38,8 @@ public class ReactionManager : MonoBehaviour
 
 
     private int leftIndex, rightIndex;
+    private int lastEqualIndex = -1; // Store last equal index
+
 
 
     void Awake()
@@ -106,11 +108,27 @@ public class ReactionManager : MonoBehaviour
 
     public void RandomUpdateSprites()
     {
-        leftIndex = Random.Range(0, QuestionImages.Length);
-        rightIndex = Random.Range(0, QuestionImages.Length);
+        if (Random.value < 0.3f) // 70% chance to be equal
+        {
+            do
+            {
+                leftIndex = Random.Range(0, QuestionImages.Length);
+            } while (leftIndex == lastEqualIndex); // Ensure it's not the last equal one
+
+            rightIndex = leftIndex; // Ensure they are equal
+            lastEqualIndex = leftIndex; // Store last equal index
+        }
+        else
+        {
+            leftIndex = Random.Range(0, QuestionImages.Length);
+            rightIndex = Random.Range(0, QuestionImages.Length);
+        }
+
+        // Update sprites
         leftImage.sprite = QuestionImages[leftIndex];
         RightImg.sprite = QuestionImages[rightIndex];
     }
+
     public void EqualOrNot()
     {
         attemptedQuestions++;
@@ -169,7 +187,7 @@ public class ReactionManager : MonoBehaviour
 
         Debug.Log("Correct Answers: " + CorrectAnswers + " Total Questions Attempted: " + attemptedQuestions + " Percentage: " + percentage);
 
-        ResultsManager.Instance.UpdateStats("Reaction Challenge", 4, attemptedQuestions, CorrectAnswers);
+        ResultsManager.Instance.UpdateStats("Reaction Challenge", 5, attemptedQuestions, CorrectAnswers);
 
         // Format the result as a percentage
         string result = percentage.ToString("F2") + "%"; // "F2" limits to 2 decimal places

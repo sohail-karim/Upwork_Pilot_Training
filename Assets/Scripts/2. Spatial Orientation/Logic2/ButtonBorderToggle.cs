@@ -11,7 +11,7 @@ public class ButtonBorderToggle : MonoBehaviour
     {
         // Optional: Call UpdateButtonsArray() if buttons are instantiated at runtime
         Debug.Log("Enabled...");
-       Invoke("UpdateButtonsArray" , 0.5f);
+       Invoke("UpdateButtonsArray" , 1f);
     }
 
     private void OnDisable()
