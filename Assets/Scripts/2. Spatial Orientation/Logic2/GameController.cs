@@ -210,39 +210,30 @@ public class GameController : MonoBehaviour
     public void SpawnDirectionPoints(string correctDirection)
     {
         
-        // Find the correct prefab
-        GameObject correctPrefab = directionPrefabs.Find(prefab => prefab.name == correctDirection);
-        if (correctPrefab == null)
-        {
-            Debug.LogError($"Prefab for {correctDirection} not found.");
-            return;
-        }
+   //   // Find the correct prefab
+   //   GameObject correctPrefab = directionPrefabs.Find(prefab => prefab.name == correctDirection);
+   //   if (correctPrefab == null)
+   //   {
+   //       Debug.LogError($"Prefab for {correctDirection} not found.");
+   //       return;
+   //   }
+   //
+   //   // Select 3 additional random prefabs excluding the correct one
+   //   List<GameObject> availablePrefabs = new List<GameObject>(directionPrefabs);
+   //   availablePrefabs.Remove(correctPrefab);
+   //
+   //   List<GameObject> selectedPrefabs = new List<GameObject> { correctPrefab }; // Always include the correct prefab
+   //   while (selectedPrefabs.Count < 4)
+   //   {
+   //       GameObject randomPrefab = availablePrefabs[Random.Range(0, availablePrefabs.Count)];
+   //       if (!selectedPrefabs.Contains(randomPrefab))
+   //       {
+   //           selectedPrefabs.Add(randomPrefab);
+   //       }
+   //   }
 
-        // Select 3 additional random prefabs excluding the correct one
-        List<GameObject> availablePrefabs = new List<GameObject>(directionPrefabs);
-        availablePrefabs.Remove(correctPrefab);
-
-        List<GameObject> selectedPrefabs = new List<GameObject> { correctPrefab }; // Always include the correct prefab
-        while (selectedPrefabs.Count < 4)
-        {
-            GameObject randomPrefab = availablePrefabs[Random.Range(0, availablePrefabs.Count)];
-            if (!selectedPrefabs.Contains(randomPrefab))
-            {
-                selectedPrefabs.Add(randomPrefab);
-            }
-        }
-
-        // Shuffle the selected prefabs to ensure the correct one is not always in the same position
-        for (int i = selectedPrefabs.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            GameObject temp = selectedPrefabs[i];
-            selectedPrefabs[i] = selectedPrefabs[randomIndex];
-            selectedPrefabs[randomIndex] = temp;
-
-        }
         // Spawn the prefabs at the spawn point
-        foreach (GameObject prefab in selectedPrefabs)
+        foreach (GameObject prefab in directionPrefabs)
         {
             GameObject instance = Instantiate(prefab, GyroDirectionsSpawnPoint.position, Quaternion.identity, GyroDirectionsSpawnPoint);
             Button button = instance.GetComponent<Button>();
@@ -256,8 +247,8 @@ public class GameController : MonoBehaviour
                 Debug.LogWarning($"Prefab {prefab.name} does not have a Button component.");
             }
         }
-        selectedPrefabs.Clear();
-        availablePrefabs.Clear();
+     //   selectedPrefabs.Clear();
+      //  availablePrefabs.Clear();
         buttonsparent.SetActive(true);
     }
 

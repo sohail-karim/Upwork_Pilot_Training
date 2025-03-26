@@ -6202,9 +6202,9 @@ MonoBehaviour:
   Arrow: {fileID: 1007542835}
   directionPrefabs:
   - {fileID: 3104625721813635108, guid: 7d9bf78bd65c12a418e071ebb634effd, type: 3}
+  - {fileID: 5942888838061646183, guid: a333b63f4df6bf3449d1c87189e16201, type: 3}
   - {fileID: 4395407804854298029, guid: 3898b6b4f2909ad498940c38e1a9cc25, type: 3}
   - {fileID: 8056230688630007544, guid: 6ac13f9fc1fcf214695511b0bdb7b6c4, type: 3}
-  - {fileID: 5942888838061646183, guid: a333b63f4df6bf3449d1c87189e16201, type: 3}
   NumberGridPrefabs:
   - {fileID: 1352562590}
   - {fileID: 1967730897}

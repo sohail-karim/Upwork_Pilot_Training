@@ -25,6 +25,8 @@ public class ConcentrationManager : MonoBehaviour
     public Sprite[] AllSprites;
     public Sprite ESprite;
     public Image SegmentImage;
+    private float timer = 0f;
+    private float interval = 1f;
 
     [Header("Dots")]
     public GameObject[] DotsCirclesPoints; // Assign 6 Circles in Inspector
@@ -73,6 +75,7 @@ public class ConcentrationManager : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime; // Decrease time by delta time
                 UpdateTimerDisplay();
+                StartGame();
             }
             else
             {
@@ -88,9 +91,19 @@ public class ConcentrationManager : MonoBehaviour
 
     public void StartGame()
     {
-        isEqual = false;
-        DotsEqual3 = false;
-        RandomGenerateLines();
+
+        timer += Time.deltaTime;
+        if (timer >= interval)
+        {
+            isEqual = false;
+            DotsEqual3 = false;
+            RandomGenerateLines();
+            //     StartCoroutine(MoveSliders());
+            timer = 0f;
+        }
+
+
+;
 
     }
 
@@ -103,13 +116,12 @@ public class ConcentrationManager : MonoBehaviour
             _CountDownTimer--;
         }
         CountDownTimerPanel.SetActive(false);
-        StartGame();
         isTimerRunning = true;
     }
 
     void RandomGenerateLines()
     {
-        if (Random.value < 0.3f)
+        if (Random.value < 0.7f)
         {
             //generate code for equal and make circle counts 3
             isEqual = true;
@@ -124,40 +136,7 @@ public class ConcentrationManager : MonoBehaviour
 
         }
     }
-    //Previous Code
-    /*
-    public void RandomGenerateLines()
-    {
-        // Ensure we have exactly 7 segments assigned
-        if (segments.Length != 7)
-        {
-            Debug.LogError("Assign exactly 7 segment sprites in the inspector!");
-            return;
-        }
-        if (Random.value< 0.3f)
-        {
-            //generate code for equal and make circle counts 3
-            isEqual = true;
-            GenerateIndicesforE();
-            ActivateDots();
-        }
-        else
-        {
-            isEqual = false;
-            ActivateDots();
-            // Randomly activate 4-6 segments
-            List<int> activeIndices = GetRandomActiveIndices();
-
-            // Enable selected segments, disable the rest
-            for (int i = 0; i < segments.Length; i++)
-            {
-                segments[i].SetActive(activeIndices.Contains(i));
-            }
-
-        }  
-    }
-
-    */
+  
 
     #region regionforE
 
@@ -218,7 +197,6 @@ public class ConcentrationManager : MonoBehaviour
         {
             Debug.Log("Wrong Ans");
         }
-        StartGame();
     }
     public void NotEqual()
     {
@@ -232,7 +210,6 @@ public class ConcentrationManager : MonoBehaviour
         {
             Debug.Log("Wrong Ans");
         }
-        StartGame();
     }
 
 
@@ -245,7 +222,7 @@ public class ConcentrationManager : MonoBehaviour
 
         Debug.Log("Correct Answers: " + CorrectAnswers + " Total Questions Attempted: " + attemptedQuestions + " Percentage: " + percentage);
 
-        ResultsManager.Instance.UpdateStats("Concentration Challenge", 6, attemptedQuestions, CorrectAnswers);
+        ResultsManager.Instance.UpdateStats("Concentration", 6, attemptedQuestions, CorrectAnswers);
 
         // Format the result as a percentage
         string result = percentage.ToString("F2") + "%"; // "F2" limits to 2 decimal places

@@ -43,7 +43,7 @@ public class ResultsUIManager : MonoBehaviour
             statUI.attemptedText.text = $"Attempted: {stat.attempted}";
             statUI.correctText.text = $"Correct: {stat.correct}";
             statUI.incorrectText.text = $"Incorrect: {stat.incorrect}";
-            statUI.percentageText.text = $"{stat.percentage}%";
+            statUI.percentageText.text = $"{(int)stat.percentage}%";
             // Load Icon
             statUI.iconImage.sprite = gameIcons[stat.iconPath];
         }
