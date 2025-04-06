@@ -3233,6 +3233,7 @@ MonoBehaviour:
   _CountDownTimer: 5
   _CountDownTimerText: {fileID: 720065084930528694}
   CountDownTimerPanel: {fileID: 720065084930528693}
+  AnsButton: {fileID: 1611681365}
   segments:
   - {fileID: 993822905}
   - {fileID: 1981043674}
@@ -3262,6 +3263,7 @@ MonoBehaviour:
   - {fileID: -1623823752, guid: 617f1ce9df087bb48aee73b6ca3c5e80, type: 3}
   ESprite: {fileID: -972393502, guid: 617f1ce9df087bb48aee73b6ca3c5e80, type: 3}
   SegmentImage: {fileID: 527307238}
+  questionInterval: 1
   DotsCirclesPoints:
   - {fileID: 1569413124}
   - {fileID: 1306538187}
@@ -3736,10 +3738,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1850516425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 1820, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 10.120117, y: -304}
+  m_SizeDelta: {x: -58.32009, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369063248
 MonoBehaviour:

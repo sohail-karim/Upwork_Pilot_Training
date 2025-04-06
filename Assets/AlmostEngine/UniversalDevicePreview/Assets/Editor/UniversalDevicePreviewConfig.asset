@@ -388,7 +388,7 @@ MonoBehaviour:
   m_GalleryTextHeight: 30
   m_GalleryBorderSize: 2
   m_Selected: 6
-  m_PreviewGalleryZoom: 0.4
+  m_PreviewGalleryZoom: 0.42
   m_PreviewZoom: 0.22
   m_RefreshMode: 0
   m_AutoRefresh: 0
