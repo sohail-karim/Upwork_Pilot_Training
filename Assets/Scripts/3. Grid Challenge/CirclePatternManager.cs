@@ -22,7 +22,7 @@ public class CirclePatternManager : MonoBehaviour
 
     public static CirclePatternManager instance;
 
-    public int CirclesScores=0;
+    public int CirclesScores = 0;
 
     LevelManager levelManager;
 
@@ -34,18 +34,18 @@ public class CirclePatternManager : MonoBehaviour
     void Start()
     {
         levelManager = LevelManager.instance;
-        instance = this;       
+        instance = this;
     }
 
     public void SpawnCircles(int gridsize, float minDistance, float time)
     {
         DeleteAllCircles();
         RectTransform circleScreenRect = circleScreen.GetComponent<RectTransform>();
-             float screenWidth = circleScreenRect.rect.width;
-             float screenHeight = circleScreenRect.rect.height;
+        float screenWidth = circleScreenRect.rect.width;
+        float screenHeight = circleScreenRect.rect.height;
 
-      //  float screenWidth = Screen.width;
-     //   float screenHeight = Screen.height;
+        //  float screenWidth = Screen.width;
+        //   float screenHeight = Screen.height;
 
 
         Debug.Log(screenWidth + " width " + screenHeight + " height");
@@ -138,7 +138,7 @@ public class CirclePatternManager : MonoBehaviour
 
     void OnCircleClicked(GameObject clickedCircle)
     {
-        
+
         if (!isLevelCompleted)
         {
             clickedCircles.Add(clickedCircle);
@@ -154,7 +154,7 @@ public class CirclePatternManager : MonoBehaviour
                     if (clickedCircles[i] != highlightedCircles[i])
                     {
                         isCorrectSequence = false;
-                        
+
                     }
                     else
                     {
@@ -186,7 +186,7 @@ public class CirclePatternManager : MonoBehaviour
             isLevelCompleted = true;
             counter = 0;
             int currentScore = CirclesScores;
-           levelManager.OnLevelComplete(currentScore);
+            levelManager.OnLevelComplete(currentScore);
         }
         else
         {
@@ -196,7 +196,7 @@ public class CirclePatternManager : MonoBehaviour
             counter = 0;
             int currentScore = CirclesScores;
             levelManager.OnLevelFailed(currentScore);
-            
+
         }
         SubmitButton.gameObject.SetActive(false);
         levelManager.circle_Grid_Rotation.SetActive(false);
@@ -211,11 +211,11 @@ public class CirclePatternManager : MonoBehaviour
         resultImg.enabled = true;
         resultImg.sprite = AnsSprite;
         yield return new WaitForSeconds(1f);
-       
+
         StopAllCoroutines();
         resultImg.sprite = null;
 
-}
+    }
 
     public void StartUserInputSequence()
     {

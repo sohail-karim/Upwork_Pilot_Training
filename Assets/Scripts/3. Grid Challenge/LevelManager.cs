@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     public GameObject circle_Grid_Rotation;
     public GameObject Addition_Substraction;
 
-  
+
     [Space]
     public Slider timer_Slider;
     public TextMeshProUGUI timer_Text;
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
     private bool isCircleScreenActive = true; // Toggles between CircleScreen and GridScreen
     private bool isCalledFromGridScreen = false;
 
-    bool isResultScreen=false;
+    bool isResultScreen = false;
     public int timesCircleScreenShown = 0; // Tracks number of CircleScreens shown
     public int timesGridScreenShown = 0; // Tracks number of GridScren is shown
 
@@ -63,6 +63,12 @@ public class LevelManager : MonoBehaviour
 
     [Space]
     public GameObject resultsPanel;
+    [Header("Results Settings")]
+    [SerializeField] private int attemptedQuestions;
+    [SerializeField] private int CorrectAnswers;
+    public GameObject  Topbar, ContinuPanel,Attempted, Correct, Percentageobj;
+    public TextMeshProUGUI ResultsText,ContinuePanelText;
+
     public TextMeshProUGUI ScoresPercentage;
 
     [Space]
@@ -77,7 +83,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        
+
 
         CircleGameManager = CirclePatternManager.instance;
         patternManager = PatternGameManager.instance;
@@ -86,7 +92,7 @@ public class LevelManager : MonoBehaviour
         substractionScreen = SubstractionGridManager.instance;
         totalLevels = levels.Count;
         currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
-        Level_txt.text =  "Level " + currentLevel.ToString();
+        Level_txt.text = "Level " + currentLevel.ToString();
 
 
         resultsPanel.SetActive(false);
@@ -110,7 +116,8 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Random Level Generated");
             currentLevelData = GenerateCustomLevel(currentLevel);
         }
-        else {
+        else
+        {
             currentLevelData = levels[currentLevel];
         }
 
@@ -187,30 +194,30 @@ public class LevelManager : MonoBehaviour
 
         //      timer_Text.text = "00:" + Mathf.CeilToInt(countdownTime).ToString("00");  // Ensure two-digit formatting
 
-      
-            while (countdownTime > 0 && TimerCheck)
-            {
-                
-                    // Decrease the countdown time (this controls the speed of the countdown)
-                    countdownTime -= Time.deltaTime;
 
-                    // Update the slider with the remaining time
-                    timer_Slider.value = countdownTime;
+        while (countdownTime > 0 && TimerCheck)
+        {
 
-                    // Round the remaining time and update the text (only updating at whole seconds)
-                    //    timer_Text.text = "00:0" + Mathf.CeilToInt(countdownTime).ToString("00");  // Update the text to show the rounded time
-                    seconds = Mathf.CeilToInt(countdownTime);
-                    timer_Text.text = $"00:{seconds:00}";
-                    
-                    yield return null;
+            // Decrease the countdown time (this controls the speed of the countdown)
+            countdownTime -= Time.deltaTime;
 
+            // Update the slider with the remaining time
+            timer_Slider.value = countdownTime;
 
-            }
+            // Round the remaining time and update the text (only updating at whole seconds)
+            //    timer_Text.text = "00:0" + Mathf.CeilToInt(countdownTime).ToString("00");  // Update the text to show the rounded time
+            seconds = Mathf.CeilToInt(countdownTime);
+            timer_Text.text = $"00:{seconds:00}";
+
+            yield return null;
 
 
-        yield return new WaitUntil(() => TimerCheck); 
+        }
 
-         
+
+        yield return new WaitUntil(() => TimerCheck);
+
+
         // Once the countdown ends, update the UI text to reflect zero
         timer_Text.text = "00:00";  // Optional: Set the text to "00:00" when the timer reaches zero
 
@@ -246,7 +253,7 @@ public class LevelManager : MonoBehaviour
         gridScreen.SetActive(true);
         // circleScreen.SetActive(false);
         // Configure the PatternGameManager for this level
-   switch (currentLevelData.levelType)
+        switch (currentLevelData.levelType)
         {
             case LevelType.Symmetric:
                 circle_Grid_Rotation.SetActive(true);
@@ -273,7 +280,7 @@ public class LevelManager : MonoBehaviour
                 break;
             case LevelType.Substraction:
                 circle_Grid_Rotation.SetActive(false);
-                Addition_Substraction.SetActive(true) ;
+                Addition_Substraction.SetActive(true);
                 SubstractionScreen.SetActive(true);
                 substractionScreen.StartChallenge();
                 Debug.Log("Substraction Questions Should be working");
@@ -290,7 +297,7 @@ public class LevelManager : MonoBehaviour
     public IEnumerator WaitAndSwitchScreen(float delay)
     {
         yield return StartCoroutine(TimerScreen(delay));
-        
+
         yield return new WaitForSeconds(0);
         // Increment the number of CircleScreens shown
         Debug.Log("Circle Screen " + timesCircleScreenShown + " = " + currentLevelData.CountToDisplayCirclesScreen);
@@ -323,13 +330,14 @@ public class LevelManager : MonoBehaviour
         RotationScreen.SetActive(false);
         AdditionScreen.SetActive(false);
         SubstractionScreen.SetActive(false);
-        if (timesCircleScreenShown> currentLevelData.CountToDisplayCirclesScreen)
+        if (timesCircleScreenShown > currentLevelData.CountToDisplayCirclesScreen)
         {
             StartCoroutine(WaitAndSwitchScreen(0f));
-        } 
-        else { 
-        CircleGameManager.AgainHighlight(currentLevelData.CircleDisplayTime);
-        StartCoroutine(WaitAndSwitchScreen(currentLevelData.CircleDisplayTime));
+        }
+        else
+        {
+            CircleGameManager.AgainHighlight(currentLevelData.CircleDisplayTime);
+            StartCoroutine(WaitAndSwitchScreen(currentLevelData.CircleDisplayTime));
         }
     }
 
@@ -357,24 +365,28 @@ public class LevelManager : MonoBehaviour
         switch (currentLevelData.levelType)
         {
             case LevelType.Symmetric:
-                 totalScores= Scores + patternManager.patternScores;
+                totalScores = Scores + patternManager.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
 
                 break;
 
             case LevelType.Rotations:
                 totalScores = Scores + rotationPatternManager.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Rotation Questions Should be working");
                 break;
 
             case LevelType.Additions:
                 totalScores = Scores + additionScreen.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Additions Questions Should be working");
                 break;
             case LevelType.Substraction:
                 totalScores = Scores + substractionScreen.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Substraction Questions Should be working");
                 break;
@@ -386,24 +398,30 @@ public class LevelManager : MonoBehaviour
         ScoresPercentage.text = Percentage.ToString() + "%";
         circle_Grid_Rotation.SetActive(false);
         Addition_Substraction.SetActive(false);
-        resultsPanel.SetActive(true);
+     //   resultsPanel.SetActive(true);
+
+       
         Debug.Log($"Level {currentLevel} Completed!");
         currentLevel++;
         PlayerPrefs.SetInt("currentLevel", currentLevel);
 
+
+        // Resetting the values to again start from 0
         patternManager.patternScores = 0;
         rotationPatternManager.patternScores = 0;
         additionScreen.patternScores = 0;
         substractionScreen.patternScores = 0;
         CircleGameManager.CirclesScores = 0;
-        if (currentLevel > totalLevels)
-        {
-            Debug.Log("Game Complete!");
-            return;
-        }
-
         // Toggle between CircleScreen and GridScreen for the next level
         isCircleScreenActive = !isCircleScreenActive;
+        if (currentLevel < totalLevels)
+        {   //Disable Results UI
+            ShowResults(false);
+        }
+        else
+        {
+            ShowResults(true);
+        }
 
     }
 
@@ -414,37 +432,57 @@ public class LevelManager : MonoBehaviour
         StartLevel(currentLevel);
     }
 
+    //Countdown timer in between levels like 3,2,1
+    IEnumerator StartCountdown()
+    {
+       
+        int count = 3;
+        while (count > 0)
+        {
+            ContinuePanelText.text = "Moving to Next Level in " + count.ToString();
+            yield return new WaitForSeconds(1f);
+            count--;
+        }
+
+        resultsPanel.SetActive(false);
+        ContinueButton(); // Your game start function
+    }
+
     // Handles level failure
     public void OnLevelFailed(int Scores)
     {
         StopAllCoroutines();
-        int totalScores= 0;
+        int totalScores = 0;
         int Percentage = 0;
         timesCircleScreenShown = 0;
         timesGridScreenShown = 0;
-       
+
 
         switch (currentLevelData.levelType)
         {
             case LevelType.Symmetric:
                 totalScores = Scores + patternManager.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
 
                 break;
 
             case LevelType.Rotations:
                 totalScores = Scores + rotationPatternManager.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Rotation Questions Should be working");
                 break;
 
             case LevelType.Additions:
                 totalScores = Scores + additionScreen.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Additions Questions Should be working");
                 break;
             case LevelType.Substraction:
                 totalScores = Scores + substractionScreen.patternScores;
+                CorrectAnswers += Scores;
                 Percentage = (int)((float)totalScores / (currentLevelData.CountToDisplayCirclesScreen + currentLevelData.CounttoDisplayGridScreen) * 100);
                 Debug.Log("Substraction Questions Should be working");
                 break;
@@ -454,11 +492,13 @@ public class LevelManager : MonoBehaviour
                 break;
         }
         ScoresPercentage.text = Percentage.ToString() + "%";
-        Debug.Log("Percentage " +  Percentage.ToString() + "%");
-        resultsPanel.SetActive(true);
-    //   patternManager.patternScores = 0;
-    //   CircleGameManager.CirclesScores = 0;
-        Debug.Log($"Level {currentLevel} Failed! Restarting...");
+        Debug.Log("Percentage " + Percentage.ToString() + "%");
+       
+      //  resultsPanel.SetActive(true);
+        //   patternManager.patternScores = 0;
+        //   CircleGameManager.CirclesScores = 0;
+        currentLevel++;
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
 
         // Resetting the values to again start from 0
         patternManager.patternScores = 0;
@@ -467,12 +507,62 @@ public class LevelManager : MonoBehaviour
         CircleGameManager.CirclesScores = 0;
         substractionScreen.patternScores = 0;
         // Restart the same level
+
+        if (currentLevel < totalLevels)
+        {   //Disable Results UI
+            ShowResults(false);
+        }
+        else
+        {
+            ShowResults(true);
+        }
     }
 
     public void ExitGame()
     {
         SceneManager.LoadScene(0);
     }
+
+    public void ShowResults(bool showresult)
+    {
+        resultsPanel.SetActive(true);
+
+        if (showresult) {
+            PlayerPrefs.SetInt("currentLevel", 0);
+            Topbar.SetActive(true);
+            ContinuPanel.SetActive(false);
+         //   Attempted.SetActive(true);
+         //   Correct.SetActive(true);
+            Percentageobj.SetActive(true);
+            // Perform floating-point division
+            float percentage = ((float)CorrectAnswers / 60) * 100f;
+
+            Debug.Log("Correct Answers: " + CorrectAnswers + " Total Questions Attempted: " + 60 + " Percentage: " + percentage);
+
+          //  Percentageobj.transform.GetChild(1).GetComponent<Text>().text = percentage.ToString();
+            ResultsManager.Instance.UpdateStats("Reaction Challenge", 5, 60, CorrectAnswers);
+
+            CorrectAnswers += CorrectAnswers;
+            attemptedQuestions += attemptedQuestions;
+
+            // Format the result as a percentage
+            string result = percentage.ToString("F2") + "%"; // "F2" limits to 2 decimal places
+            ResultsText.text = result;
+            //   Attempted.transform.GetChild(1).GetComponent<Text>().text = attemptedQuestions.ToString();
+            //   Correct.transform.GetChild(1).GetComponent<Text>().text = CorrectAnswers.ToString();
+            CorrectAnswers = 0;
+        }
+        else
+        {
+            ContinuPanel.SetActive(true);
+            Correct.SetActive(true);
+            Percentageobj.SetActive(true);
+            Topbar.SetActive(false);
+            StartCoroutine(StartCountdown());
+        }
+    }
+
+
 }
 
 public enum LevelType
@@ -500,4 +590,3 @@ public class Levels
     [Header("Level Type")]
     public LevelType levelType; // Only one level type can be selected
 }
-
