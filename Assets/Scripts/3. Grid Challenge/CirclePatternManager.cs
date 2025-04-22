@@ -154,11 +154,13 @@ public class CirclePatternManager : MonoBehaviour
                     if (clickedCircles[i] != highlightedCircles[i])
                     {
                         isCorrectSequence = false;
+                  //      FindAnyObjectByType<LevelManager>().setScores(1, 0);
 
                     }
                     else
                     {
                         CirclesScores++;
+                   //     FindAnyObjectByType<LevelManager>().setScores(1, 1);
                     }
                 }
 

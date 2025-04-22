@@ -360,6 +360,7 @@ public class AdditionGridManager : MonoBehaviour
         {
             StartCoroutine(Display_Result(levelManager.img_Tick));
             patternScores++;
+            levelManager.setScores(1);
 
         }
         else
@@ -373,6 +374,7 @@ public class AdditionGridManager : MonoBehaviour
         if (AnsStatus)
         {
             patternScores++;
+            levelManager.setScores(1);
             StartCoroutine(Display_Result(levelManager.img_Tick));
         }
         else

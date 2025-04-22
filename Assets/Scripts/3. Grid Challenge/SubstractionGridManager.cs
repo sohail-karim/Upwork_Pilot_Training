@@ -333,6 +333,7 @@ public class SubstractionGridManager : MonoBehaviour
         if (AnsStatus)
         {
             patternScores++;
+            levelManager.setScores(1);
             StartCoroutine(Display_Result(levelManager.img_Tick));
         }
         else
@@ -346,6 +347,7 @@ public class SubstractionGridManager : MonoBehaviour
         if (!AnsStatus)
         {
             patternScores++;
+            levelManager.setScores(1);
             StartCoroutine(Display_Result(levelManager.img_Tick));
         }
         else

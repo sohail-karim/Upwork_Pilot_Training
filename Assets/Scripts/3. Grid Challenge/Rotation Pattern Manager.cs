@@ -174,6 +174,7 @@ public class RotationPatternManager : MonoBehaviour
         {
             StartCoroutine(Display_Result(levelManager.img_Tick));
             patternScores++;
+            levelManager.setScores(1);
             Debug.Log("Correct Ans");
         }
         else
@@ -188,6 +189,7 @@ public class RotationPatternManager : MonoBehaviour
         if (changeToUpperRight)
         {
             patternScores++;
+            levelManager.setScores(1);
             StartCoroutine(Display_Result(levelManager.img_Tick));
             Debug.Log("Correct Ans");
         }

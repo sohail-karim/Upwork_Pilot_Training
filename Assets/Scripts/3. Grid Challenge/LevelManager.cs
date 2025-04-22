@@ -17,6 +17,12 @@ public class LevelManager : MonoBehaviour
     public GameObject circle_Grid_Rotation;
     public GameObject Addition_Substraction;
 
+    [Header("CountDownTimer")]
+    [SerializeField] int _CountDownTimer = 5; // Count down timer before game starts..
+    [SerializeField] TextMeshProUGUI _CountDownTimerText;
+    [SerializeField] GameObject _StartPanel; //CountDown Timer Panel..
+
+
 
     [Space]
     public Slider timer_Slider;
@@ -66,7 +72,7 @@ public class LevelManager : MonoBehaviour
     [Header("Results Settings")]
     [SerializeField] private int attemptedQuestions;
     [SerializeField] private int CorrectAnswers;
-    public GameObject  Topbar, ContinuPanel,Attempted, Correct, Percentageobj;
+    public GameObject  Topbar, ContinuPanel,Attempted, Correct, Percentageobj , continuebutton,mainmenubutton;
     public TextMeshProUGUI ResultsText,ContinuePanelText;
 
     public TextMeshProUGUI ScoresPercentage;
@@ -81,9 +87,13 @@ public class LevelManager : MonoBehaviour
         instance = this;
     }
 
+    public void setScores(int correct)
+    {
+        CorrectAnswers += correct;
+    }
+
     void Start()
     {
-
 
         CircleGameManager = CirclePatternManager.instance;
         patternManager = PatternGameManager.instance;
@@ -93,6 +103,22 @@ public class LevelManager : MonoBehaviour
         totalLevels = levels.Count;
         currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
         Level_txt.text = "Level " + currentLevel.ToString();
+        StartCoroutine(CountDownTimer());
+        _CountDownTimer = 5;
+        _CountDownTimerText.text = _CountDownTimer.ToString();
+
+    }
+
+    IEnumerator CountDownTimer()
+    {
+        while (_CountDownTimer > 0)
+        {
+            Debug.Log("CountDownTimer: " + _CountDownTimer);
+            _CountDownTimerText.text = _CountDownTimer.ToString(); // Update UI first
+            yield return new WaitForSeconds(1); // Then wait
+            _CountDownTimer--;
+        }
+        _StartPanel.SetActive(false);
 
 
         resultsPanel.SetActive(false);
@@ -101,7 +127,9 @@ public class LevelManager : MonoBehaviour
         AdditionScreen.SetActive(false);
         SubstractionScreen.SetActive(false);
         StartLevel(currentLevel);
+
     }
+
 
     public void StartLevel(int CurrentLevelNo)
     {
@@ -232,12 +260,20 @@ public class LevelManager : MonoBehaviour
 
         if (isResultScreen)
         {
-            CircleGameManager.DisplayResult(img_False);
-            Debug.Log("No Ans is submitted in Time : ");
-            NoSubmitScreen.SetActive(true);
-            countdownTime = 0;
+            //   CircleGameManager.DisplayResult(img_False);
+            //   Debug.Log("No Ans is submitted in Time : ");
+            //   NoSubmitScreen.SetActive(true);
+            //   countdownTime = 0;
+
+            OnNoresultSubmitted();
         }
 
+
+    }
+
+    public void OnNoresultSubmitted() { 
+    
+        CircleGameManager.SubmitButtonClicked();
 
     }
     private void ActivateGridScreen(float gridTime)
@@ -508,7 +544,7 @@ public class LevelManager : MonoBehaviour
         substractionScreen.patternScores = 0;
         // Restart the same level
 
-        if (currentLevel < totalLevels)
+        if (currentLevel == totalLevels-1)
         {   //Disable Results UI
             ShowResults(false);
         }
@@ -534,13 +570,15 @@ public class LevelManager : MonoBehaviour
          //   Attempted.SetActive(true);
          //   Correct.SetActive(true);
             Percentageobj.SetActive(true);
+            continuebutton.SetActive(true);
+            mainmenubutton.SetActive(true);
             // Perform floating-point division
             float percentage = ((float)CorrectAnswers / 60) * 100f;
 
-            Debug.Log("Correct Answers: " + CorrectAnswers + " Total Questions Attempted: " + 60 + " Percentage: " + percentage);
+            Debug.Log("Correct Answers: " + CorrectAnswers + " Total Questions Attempted: " + 96 + " Percentage: " + percentage);
 
           //  Percentageobj.transform.GetChild(1).GetComponent<Text>().text = percentage.ToString();
-            ResultsManager.Instance.UpdateStats("Reaction Challenge", 5, 60, CorrectAnswers);
+            ResultsManager.Instance.UpdateStats("Grid challenge", 5, 96, CorrectAnswers);
 
             CorrectAnswers += CorrectAnswers;
             attemptedQuestions += attemptedQuestions;
@@ -558,6 +596,8 @@ public class LevelManager : MonoBehaviour
             Correct.SetActive(true);
             Percentageobj.SetActive(true);
             Topbar.SetActive(false);
+            continuebutton.SetActive(false);
+            mainmenubutton.SetActive(false);
             StartCoroutine(StartCountdown());
         }
     }

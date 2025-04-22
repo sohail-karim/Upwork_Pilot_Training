@@ -8,7 +8,6 @@ public class PatternGameManager : MonoBehaviour
     public List<Transform> leftPoints;  // List of points on the left grid
     public List<Transform> rightPoints; // List of points on the right grid
 
-   
 
     public Button yesButton; // Yes button for checking the symmetry
     public Button noButton; // No button for checking the difference
@@ -142,6 +141,8 @@ public class PatternGameManager : MonoBehaviour
             //  Debug.Log("Success: The pattern is symmetrical!");
             StartCoroutine(Display_Result(levelManager.img_Tick));
             patternScores++;
+            levelManager.setScores(1);
+
 
         }
         else
@@ -176,6 +177,7 @@ public class PatternGameManager : MonoBehaviour
         if (!isSymmetrical && isAsymmetricalCheck)
         {
             patternScores++;
+            levelManager.setScores(1);
             //  Debug.Log("Correct: The pattern is asymmetrical.");
             StartCoroutine(Display_Result(levelManager.img_Tick));
 
