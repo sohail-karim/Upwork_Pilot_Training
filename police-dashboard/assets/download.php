@@ -1,7 +1,8 @@
 <?php
 /**
  * Download CSV Export
- * Exports processed data to CSV format (no external dependencies)
+ * Exports processed data to CSV format
+ * Format: Total | Completed (FIR, Rappat) | Filled | Pending
  */
 
 session_start();
@@ -26,17 +27,38 @@ $output = fopen('php://output', 'w');
 // Add BOM for Excel UTF-8 compatibility
 fputcsv($output, array('\xEF\xBB\xBF'), '');
 
-// Write headers
-$headers = ['Sr No', 'Office/PS Name', 'Total Complaints'];
+// Write main headers (Category names)
+$mainHeaders = ['Sr No', 'Office/PS Name'];
 foreach (CRIME_CATEGORIES as $category) {
-    $headers[] = $category . ' - Total';
-    $headers[] = $category . ' - Completed';
-    $headers[] = $category . ' - FIR';
-    $headers[] = $category . ' - Rappat';
-    $headers[] = $category . ' - Filled';
-    $headers[] = $category . ' - Pending';
+    $mainHeaders[] = $category;
+    $mainHeaders[] = '';
+    $mainHeaders[] = '';
+    $mainHeaders[] = '';
+    $mainHeaders[] = '';
 }
-fputcsv($output, $headers);
+fputcsv($output, $mainHeaders);
+
+// Write second level headers
+$secondHeaders = ['', ''];
+foreach (CRIME_CATEGORIES as $category) {
+    $secondHeaders[] = 'Total';
+    $secondHeaders[] = 'Completed';
+    $secondHeaders[] = '';
+    $secondHeaders[] = 'Filled';
+    $secondHeaders[] = 'Pending';
+}
+fputcsv($output, $secondHeaders);
+
+// Write third level headers (FIR, Rappat under Completed)
+$thirdHeaders = ['', ''];
+foreach (CRIME_CATEGORIES as $category) {
+    $thirdHeaders[] = '';
+    $thirdHeaders[] = 'FIR';
+    $thirdHeaders[] = 'Rappat';
+    $thirdHeaders[] = '';
+    $thirdHeaders[] = '';
+}
+fputcsv($output, $thirdHeaders);
 
 // Write data rows
 $srNo = 1;
@@ -45,14 +67,12 @@ foreach (POLICE_STATIONS as $psName) {
     
     $row = [
         $srNo,
-        $ps['Police Station'],
-        $ps['Total Complaints']
+        $ps['Police Station']
     ];
     
     foreach (CRIME_CATEGORIES as $category) {
         $catData = $ps[$category];
         $row[] = $catData['Total'];
-        $row[] = $catData['Completed'];
         $row[] = $catData['FIR'];
         $row[] = $catData['Rappat'];
         $row[] = $catData['Filled'];
@@ -64,11 +84,10 @@ foreach (POLICE_STATIONS as $psName) {
 }
 
 // Write totals row
-$totalRow = ['', 'Total', $totals['Total Complaints']];
+$totalRow = ['', 'Total'];
 foreach (CRIME_CATEGORIES as $category) {
     $catTotals = $totals[$category];
     $totalRow[] = $catTotals['Total'];
-    $totalRow[] = $catTotals['Completed'];
     $totalRow[] = $catTotals['FIR'];
     $totalRow[] = $catTotals['Rappat'];
     $totalRow[] = $catTotals['Filled'];
